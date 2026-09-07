@@ -6,7 +6,7 @@ public class CollectableItemInfo : ScriptableObject
     [Header("Default Setting")]
     public int id;
     public string description;
-    public Sprite smallSprite;
+    public Mesh mesh;
     public Sprite backgroundSprite;
 
 

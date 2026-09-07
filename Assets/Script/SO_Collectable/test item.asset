@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bfb1834eaed65418ba8ece1ddeb92c, type: 3}
   m_Name: test item
   m_EditorClassIdentifier: Assembly-CSharp::CollectableItemInfo
-  sprite: {fileID: 0}
   id: 0
-  description: 
-  prefab: {fileID: 0}
+  description: an item for test
+  mesh: {fileID: 0}
+  backgroundSprite: {fileID: 0}
   icon: {fileID: 0}

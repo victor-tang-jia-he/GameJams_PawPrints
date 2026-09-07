@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(MeshFilter))]
 public class CollectableObject : MonoBehaviour
 {
     public CollectableItemInfo item;
-    public List<string> dialogueText;
-    public SpriteRenderer spriteRenderer;
+    public string dialogueKnotName;
+    public MeshFilter meshFilter;
 
     public void Awake()
     {
@@ -16,9 +16,16 @@ public class CollectableObject : MonoBehaviour
             return;
         }
 
-        item = GetComponent<CollectableItemInfo>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        meshFilter = GetComponent<MeshFilter>();
 
-        spriteRenderer.sprite = item.smallSprite;
+        meshFilter.mesh = item.mesh;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            DialogueManager.instance?.EnterDialogue(dialogueKnotName);
+        }
     }
 }
