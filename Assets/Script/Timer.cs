@@ -5,12 +5,13 @@ public class Timer
     private float currentTime = 0.0f;
     private float maxTime = 0.0f;
 
-    Timer(float maxTime)
+    public Timer(float maxTime)
     {
         this.maxTime = maxTime;
     }
 
-    bool AddTime(float deltaTime)
+    // return if timer is complete
+    public bool AddTime(float deltaTime)
     {
         currentTime += deltaTime;
         if (currentTime > maxTime)
@@ -21,11 +22,11 @@ public class Timer
         return false;
     }
 
-    void Reset()
+    public void Reset()
     {
         currentTime = 0.0f;
     }
-    float GetRatio()
+    public float GetRatio()
     {
         return currentTime / maxTime;
     }

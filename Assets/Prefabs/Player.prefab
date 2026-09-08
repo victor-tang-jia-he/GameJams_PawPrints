@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1513700774864473579}
   - component: {fileID: -3773828836428843854}
   - component: {fileID: -7068825951916800380}
+  - component: {fileID: 6449393834779890338}
   - component: {fileID: 3176450696718603582}
   m_Layer: 0
   m_Name: Player
@@ -132,6 +133,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   characterController: {fileID: -3773828836428843854}
   MovementSpeed: 10
+--- !u!114 &6449393834779890338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048275055948529387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b42b160ba9a3684eb4c1f1f50f9fa3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCall
+  CallRadius: 50
+  callCooldown: 1
 --- !u!114 &3176450696718603582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +188,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 98e90e15-a219-494e-925d-19b47b463dd2
     m_ActionName: 'Player/Movement[/Keyboard/z,/Keyboard/s,/Keyboard/q,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 672f3144-f1e6-4e7a-9e62-2ae0da34e989
+    m_ActionName: 'Player/Interact[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b9009c16-8869-40e8-aeed-dbe9de8c83bb
+    m_ActionName: 'Player/Submit[/Keyboard/anyKey]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c9e82293-85fb-48db-ac2d-e19c1888f085
+    m_ActionName: 'Player/Call[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
