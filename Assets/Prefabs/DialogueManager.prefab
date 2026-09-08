@@ -44,11 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241f3aa6ba671c9419cd9c7a66df80f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  dialogueTexts:
-  - KnotName: Test Knot
-    texts:
-    - Test
-  typingSpeed: 1
+  story: {fileID: 11400000, guid: 31e57e36c8104724fbea7f1978357322, type: 2}
+  typingSpeed: 0.02
   dialogueText: {fileID: 0}
   dialoguePanel: {fileID: 0}
   uiBackgroudImageDialogue: {fileID: 0}

@@ -942,12 +942,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5621738516653403806, guid: 1cdaba65ca758ef4dab6d5920b2775aa, type: 3}
-      propertyPath: story
-      value: 
-      objectReference: {fileID: 11400000, guid: 31e57e36c8104724fbea7f1978357322, type: 2}
-    - target: {fileID: 5621738516653403806, guid: 1cdaba65ca758ef4dab6d5920b2775aa, type: 3}
       propertyPath: typingSpeed
-      value: 0.1
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5621738516653403806, guid: 1cdaba65ca758ef4dab6d5920b2775aa, type: 3}
       propertyPath: dialogueText
@@ -961,18 +957,6 @@ PrefabInstance:
       propertyPath: uiBackgroudImageDialogue
       value: 
       objectReference: {fileID: 1042770436}
-    - target: {fileID: 5621738516653403806, guid: 1cdaba65ca758ef4dab6d5920b2775aa, type: 3}
-      propertyPath: dialogueTexts.Array.data[0].texts.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5621738516653403806, guid: 1cdaba65ca758ef4dab6d5920b2775aa, type: 3}
-      propertyPath: 'dialogueTexts.Array.data[0].texts.Array.data[1]'
-      value: Test 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5621738516653403806, guid: 1cdaba65ca758ef4dab6d5920b2775aa, type: 3}
-      propertyPath: 'dialogueTexts.Array.data[0].texts.Array.data[2]'
-      value: End dialogue
-      objectReference: {fileID: 0}
     - target: {fileID: 7673552557947834611, guid: 1cdaba65ca758ef4dab6d5920b2775aa, type: 3}
       propertyPath: m_Name
       value: DialogueManager

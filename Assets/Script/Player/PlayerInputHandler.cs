@@ -56,6 +56,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.performed)
         {
+            Debug.Log("Submit pressed");
             _submitPressed = true;
         }
         else if (context.canceled)

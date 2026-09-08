@@ -4,8 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 public class CollectableObject : MonoBehaviour
 {
-    public CollectableItemInfo item;
-    public string dialogueKnotName;
+    public InteractableItemInfo itemInfo;
     public MeshFilter meshFilter;
 
     private DialogueManager dialogueManager;
@@ -14,7 +13,7 @@ public class CollectableObject : MonoBehaviour
     static public string PLAYER_TAG = string.Empty; // TODO : Add it to the player
     public void Awake()
     {
-        if (item == null)
+        if (itemInfo == null)
         {
             Debug.LogWarning($"Collectable Object Item info missing");
             return;
@@ -22,7 +21,7 @@ public class CollectableObject : MonoBehaviour
 
         meshFilter = GetComponent<MeshFilter>();
 
-        meshFilter.mesh = item.mesh;
+        meshFilter.mesh = itemInfo.mesh;
     }
 
     private void Start()
@@ -32,7 +31,7 @@ public class CollectableObject : MonoBehaviour
     private void Update()
     {
         if ((playerInputHandler = PlayerInputHandler.Instance) == null) return; // Lazy getter
-        if (playerInputHandler.GetInteractPressed())
+        if (playerInputHandler.InteractPressed)
         {
             Interact();
         }
@@ -42,7 +41,7 @@ public class CollectableObject : MonoBehaviour
     {
         if (dialogueManager != null)
         {
-            StartCoroutine(dialogueManager.CO_EnterDialogue(dialogueKnotName));
+            StartCoroutine(dialogueManager.CO_EnterDialogue(itemInfo));
         }
     }
 }
