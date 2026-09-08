@@ -8,9 +8,12 @@ public class CollectableObject : MonoBehaviour
     public string dialogueKnotName;
     public MeshFilter meshFilter;
 
+    private DialogueManager dialogueManager;
+
+    static public string PLAYER_TAG = string.Empty; // TODO : Add it to the player
     public void Awake()
     {
-        if (item  == null)
+        if (item == null)
         {
             Debug.LogWarning($"Collectable Object Item info missing");
             return;
@@ -21,11 +24,23 @@ public class CollectableObject : MonoBehaviour
         meshFilter.mesh = item.mesh;
     }
 
+    private void Start()
+    {
+        dialogueManager = DialogueManager.instance;
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F)) // TODO : Remove later
         {
-            DialogueManager.instance?.EnterDialogue(dialogueKnotName);
+            Interact();
+        }
+    }
+    // Called by the player
+    public void Interact()
+    {
+        if (dialogueManager != null)
+        {
+            StartCoroutine(dialogueManager.CO_EnterDialogue(dialogueKnotName));
         }
     }
 }
