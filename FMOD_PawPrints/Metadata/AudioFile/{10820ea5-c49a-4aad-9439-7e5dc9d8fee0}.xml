@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{10820ea5-c49a-4aad-9439-7e5dc9d8fee0}">
+		<property name="assetPath">
+			<value>sfx_player_footsteps_leaves-007.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{88a519c1-0e90-435a-a906-950600317a7b}</destination>
+		</relationship>
+	</object>
+</objects>
