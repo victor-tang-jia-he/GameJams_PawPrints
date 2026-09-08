@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1180125341425048626
+--- !u!1 &3417440235424771008
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2946692544377792367}
-  - component: {fileID: 6068081223963431681}
-  - component: {fileID: 1184155712059309925}
-  - component: {fileID: 5036589203960056404}
-  - component: {fileID: 5343710660962484991}
+  - component: {fileID: 5431744475700942721}
+  - component: {fileID: 3930847752871936206}
+  - component: {fileID: 2937724508113652262}
+  - component: {fileID: 5019720133771054550}
+  - component: {fileID: 6800695743376609366}
   m_Layer: 0
-  m_Name: Collectable Object
+  m_Name: Next level gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2946692544377792367
+--- !u!4 &5431744475700942721
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180125341425048626}
+  m_GameObject: {fileID: 3417440235424771008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.34, y: 1.41, z: 3.57}
+  m_LocalPosition: {x: 0, y: 0.639, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6068081223963431681
+--- !u!33 &3930847752871936206
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180125341425048626}
+  m_GameObject: {fileID: 3417440235424771008}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1184155712059309925
+--- !u!23 &2937724508113652262
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180125341425048626}
+  m_GameObject: {fileID: 3417440235424771008}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -92,13 +92,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5036589203960056404
+--- !u!65 &5019720133771054550
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180125341425048626}
+  m_GameObject: {fileID: 3417440235424771008}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -113,18 +113,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5343710660962484991
+--- !u!114 &6800695743376609366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180125341425048626}
+  m_GameObject: {fileID: 3417440235424771008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5955a93fbe2330648ad48453956ba86d, type: 3}
+  m_Script: {fileID: 11500000, guid: a47d43d19b0ce3c4292c6cf7a80ba020, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CollectableObject
-  item: {fileID: 0}
-  dialogueKnotName: 
-  meshFilter: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::NextLevel
+  nextlevelIndex: 0
+  objectMissingItemInfo: {fileID: 11400000, guid: af2e41448d2b6194499b5d27e3d7e546, type: 2}
+  requiredCollectableObjects: []

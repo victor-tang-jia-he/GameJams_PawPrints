@@ -65,14 +65,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            return;
-        }
-        if (Instance != this) Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
-
         if (dialogueText == null || uiBackgroudImageDialogue == null || dialoguePanel == null)
         {
             Debug.LogError("Dialogue system can't work properly without those object or setting assigned, check if anything is missing before starting the game");
@@ -82,12 +74,14 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = string.Empty;
         SetTransparency(uiBackgroudImageDialogue, 0);
-    }
+        DontDestroyOnLoad(gameObject);
 
-    private void Start()
-    {
-
-
+        if (Instance == null)
+        {
+            Instance = this;
+            return;
+        }
+        if (Instance != this) Destroy(gameObject);
     }
 
     private void Update()

@@ -9,13 +9,14 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        DontDestroyOnLoad(gameObject);
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(gameObject);
             return;
         }
-        if (Instance != this) Destroy(gameObject);
 
+        Instance = this;
     }
 
     public void AddItemIntoInventory(InteractableItemInfo itemInfo)

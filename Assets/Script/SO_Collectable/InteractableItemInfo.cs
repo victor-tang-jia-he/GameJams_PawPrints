@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CollectableItemInfo", menuName = "Scriptable Objects/Collectable Item Info")]
+[CreateAssetMenu(fileName = "InteractableItemInfo", menuName = "Scriptable Objects/Interactable Item Info")]
 public class InteractableItemInfo : ScriptableObject
 {
     [Header("Default Setting")]
