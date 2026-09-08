@@ -65,12 +65,12 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
-            Destroy(gameObject);
+            Instance = this;
             return;
         }
-        Instance = this;
+        if (Instance != this) Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
         if (dialogueText == null || uiBackgroudImageDialogue == null || dialoguePanel == null)

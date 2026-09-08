@@ -28,12 +28,12 @@ public class PlayerInputHandler : MonoBehaviour
     #region Unity Methods
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
-            Destroy(gameObject);
+            Instance = this;
             return;
         }
-        Instance = this;
+        if (Instance != this) Destroy(gameObject);
     }
     #endregion
 
