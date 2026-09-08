@@ -8,7 +8,7 @@ public class StoryKnot
 {
     private int currentIndex = -1;
     public DialogueKnot knot;
-    public bool CanContinue
+    public bool canContinue
     {
         get
         {
@@ -18,7 +18,7 @@ public class StoryKnot
 
     public string Continue()
     {
-        if (CanContinue)
+        if (canContinue)
         {
             ++currentIndex;
             return knot.texts[currentIndex];
@@ -65,14 +65,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
         if (dialogueText == null || uiBackgroudImageDialogue == null || dialoguePanel == null)
         {
             Debug.LogError("Dialogue system can't work properly without those object or setting assigned, check if anything is missing before starting the game");
@@ -82,36 +74,38 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = string.Empty;
         SetTransparency(uiBackgroudImageDialogue, 0);
-    }
+        DontDestroyOnLoad(gameObject);
 
-    private void Start()
-    {
-
-
+        if (Instance == null)
+        {
+            Instance = this;
+            return;
+        }
+        if (Instance != this) Destroy(gameObject);
     }
 
     private void Update()
     {
         if ((playerInputHandler = PlayerInputHandler.Instance) == null) return; // Lazy getter
         if (!isPlaying) return;
-        if (playerInputHandler.GetSubmitPressed() && canContinueToNextLine)
+        if (canContinueToNextLine && playerInputHandler.GetSubmitPressed())
         {
             ContinueStory();
         }
     }
 
-    public IEnumerator CO_EnterDialogue(string KnotName)
+    public IEnumerator CO_EnterDialogue(InteractableItemInfo collectableItemInfo)
     {
         if (isPlaying) yield break;
         isPlaying = true;
 
-        if ((currentStory.knot = story.FindKnot(KnotName)) == null)
+        if ((currentStory.knot = story.FindKnot(collectableItemInfo.knotName)) == null)
         {
-            Debug.LogWarning($"{KnotName} is not set or miss written");
+            Debug.LogWarning($"{collectableItemInfo.knotName} is not set or miss written");
             yield break;
         }
 
-        Debug.Log($"Dialogue started {KnotName}");
+        Debug.Log($"Dialogue started {collectableItemInfo.knotName}");
 
         if (displayLineCoroutine != null)
         {
@@ -144,7 +138,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStory()
     {
-        if (currentStory.CanContinue)
+        if (currentStory.canContinue)
         {
             if (displayLineCoroutine != null)
             {

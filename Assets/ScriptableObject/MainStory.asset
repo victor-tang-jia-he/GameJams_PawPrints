@@ -16,6 +16,12 @@ MonoBehaviour:
   - KnotName: Test Knot
     texts:
     - Begin story
-    - Blabla 1
-    - blabla 2
+    - Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1
+    - blabla 2blabla 2blabla 2blabla 2blabla 2blabla 2blabla 2
     - End story
+  - KnotName: 1Door
+    texts:
+    - I am a door
+  - KnotName: Missing Object
+    texts:
+    - Object required is missing
