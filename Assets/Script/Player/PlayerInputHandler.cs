@@ -28,11 +28,12 @@ public class PlayerInputHandler : MonoBehaviour
     #region Unity Methods
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
     }
     #endregion
@@ -56,6 +57,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.performed)
         {
+            Debug.Log("Submit pressed");
             _submitPressed = true;
         }
         else if (context.canceled)

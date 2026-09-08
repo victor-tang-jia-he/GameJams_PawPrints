@@ -1,20 +1,20 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
-public class CollectableObject : MonoBehaviour
+public class CollectableObject : MonoBehaviour, IInteractable
 {
-    public CollectableItemInfo item;
-    public string dialogueKnotName;
+    public InteractableItemInfo itemInfo;
     public MeshFilter meshFilter;
 
     private DialogueManager dialogueManager;
     private PlayerInputHandler playerInputHandler;
 
-    static public string PLAYER_TAG = string.Empty; // TODO : Add it to the player
+    static public string PLAYER_TAG = "Player"; // TODO : Add it to the player
+
+
     public void Awake()
     {
-        if (item == null)
+        if (itemInfo == null)
         {
             Debug.LogWarning($"Collectable Object Item info missing");
             return;
@@ -22,7 +22,7 @@ public class CollectableObject : MonoBehaviour
 
         meshFilter = GetComponent<MeshFilter>();
 
-        meshFilter.mesh = item.mesh;
+        meshFilter.mesh = itemInfo.mesh;
     }
 
     private void Start()
@@ -31,18 +31,23 @@ public class CollectableObject : MonoBehaviour
     }
     private void Update()
     {
-        if ((playerInputHandler = PlayerInputHandler.Instance) == null) return; // Lazy getter
-        if (playerInputHandler.GetInteractPressed())
-        {
-            Interact();
-        }
+        if (playerInputHandler == null && (playerInputHandler = PlayerInputHandler.Instance) == null) return; // Lazy getter
     }
     // Called by the player
-    public void Interact()
+    void IInteractable.Interact()
     {
         if (dialogueManager != null)
         {
-            StartCoroutine(dialogueManager.CO_EnterDialogue(dialogueKnotName));
+            StartCoroutine(dialogueManager.CO_EnterDialogue(itemInfo));
         }
+        DialogueManager.OnDialogueEnded += AutoDeleteOnDialogueEnded;
     }
+
+    private void AutoDeleteOnDialogueEnded()
+    {
+        DialogueManager.OnDialogueEnded -= AutoDeleteOnDialogueEnded;
+
+        Destroy(gameObject);
+    }
+
 }

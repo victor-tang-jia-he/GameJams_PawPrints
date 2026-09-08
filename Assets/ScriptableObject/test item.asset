@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: test item
   m_EditorClassIdentifier: Assembly-CSharp::CollectableItemInfo
   id: 0
+  knotName: Test Knot
   description: an item for test
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 0}
