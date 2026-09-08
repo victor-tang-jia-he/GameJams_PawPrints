@@ -7,19 +7,7 @@ public class Movement : MonoBehaviour
     private CharacterController characterController;
 
     public float MovementSpeed;
-
     private Vector2 moveInput;
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
     public void OnMove(InputAction.CallbackContext callbackContext)
     {
         moveInput = callbackContext.ReadValue<Vector2>();
