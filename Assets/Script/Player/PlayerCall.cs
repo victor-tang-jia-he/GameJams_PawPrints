@@ -10,11 +10,7 @@ public class PlayerCall : MonoBehaviour
 
     private bool isOnCooldown = false;
     private Timer cooldownTimer;
-    void Awake()
-    {
-        
-    }
-
+    
     void Update()
     {
         if (isOnCooldown)
@@ -34,7 +30,7 @@ public class PlayerCall : MonoBehaviour
         isOnCooldown = true;
         cooldownTimer = new Timer(callCooldown);
 
-        GlobalCallInvoker.Singleton.GlobalCall(transform.position, CallRadius, 3.0f);
+        GlobalCallInvoker.Singleton.GlobalCall(transform.position, CallRadius, 1.0f);
         
     }
 }

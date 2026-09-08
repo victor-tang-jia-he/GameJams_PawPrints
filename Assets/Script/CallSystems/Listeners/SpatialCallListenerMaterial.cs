@@ -10,7 +10,8 @@ public class SpatialCallListenerMaterial : SpatialCallListener
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
-
+    [SerializeField]
+    private float visibleTime;
     private void Awake()
     {
         DisableMaterial();
@@ -21,7 +22,7 @@ public class SpatialCallListenerMaterial : SpatialCallListener
         if (!spriteRenderer.enabled)
         {
             spriteRenderer.enabled = true;
-            Invoke(nameof(DisableMaterial), 10.0f);
+            Invoke(nameof(DisableMaterial), visibleTime);
         }
     }
 
