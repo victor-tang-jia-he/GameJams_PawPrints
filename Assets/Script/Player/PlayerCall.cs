@@ -30,7 +30,7 @@ public class PlayerCall : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Call");
+        Debug.Log("Player Call");
         isOnCooldown = true;
         cooldownTimer = new Timer(callCooldown);
 

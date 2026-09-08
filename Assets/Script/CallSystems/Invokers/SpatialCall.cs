@@ -20,4 +20,9 @@ public class SpatialCall : MonoBehaviour
             }
         }
     }
+    private void OnDrawGizmos()
+    {   
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, CallRadius);
+    }
 }

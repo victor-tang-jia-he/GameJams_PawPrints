@@ -11,5 +11,6 @@ public class SpatialCallListener : MonoBehaviour
     public virtual void ListenToCall(CallData callData)
     {
         OnListenToCallEvent.Invoke(callData);
+        Debug.Log("Listening");
     }
 }
