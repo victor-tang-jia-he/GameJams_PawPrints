@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a00ca90370b6442a427a8851926dcc, type: 3}
+  m_Name: MainStory
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Story
+  dialogueTexts:
+  - KnotName: Test Knot
+    texts:
+    - Begin story
+    - Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1
+    - blabla 2blabla 2blabla 2blabla 2blabla 2blabla 2blabla 2
+    - End story
+  - KnotName: 1Door
+    texts:
+    - I am a door
+  - KnotName: Missing Object
+    texts:
+    - Object required is missing
