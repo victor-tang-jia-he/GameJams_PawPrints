@@ -325,28 +325,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &559394587 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3789243629369352405, guid: b7f11e745113472419402090bd130bb8, type: 3}
-  m_PrefabInstance: {fileID: 2122257932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
---- !u!114 &928072822 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1276817469128985978, guid: b7f11e745113472419402090bd130bb8, type: 3}
-  m_PrefabInstance: {fileID: 2122257932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,17 +459,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7587414798522725152, guid: 80c7b13b98ca74a4cbd87ea6db04973d, type: 3}
   m_PrefabInstance: {fileID: 8884470748526638507}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1847722717 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1190211007013851971, guid: b7f11e745113472419402090bd130bb8, type: 3}
-  m_PrefabInstance: {fileID: 2122257932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &2122257932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,34 +467,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1190211007013851971, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1251676766152050330, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: settings
-      value: 
-      objectReference: {fileID: 11400000, guid: 5646adfbf7be25b4c8275145fedaefe4, type: 2}
-    - target: {fileID: 1251676766152050330, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: sfxVolume
-      value: 
-      objectReference: {fileID: 928072822}
-    - target: {fileID: 1251676766152050330, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: musicVolume
-      value: 
-      objectReference: {fileID: 559394587}
-    - target: {fileID: 1251676766152050330, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: masterVolume
-      value: 
-      objectReference: {fileID: 1847722717}
-    - target: {fileID: 1251676766152050330, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: musicBusPath
-      value: bus:/MUSIC
-      objectReference: {fileID: 0}
-    - target: {fileID: 1276817469128985978, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1369289234439122905, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -559,10 +498,6 @@ PrefabInstance:
     - target: {fileID: 3623099927522148172, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_Name
       value: Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789243629369352405, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_Value
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3846617020823123915, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -604,18 +539,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4371141936774760169, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4371141936774760169, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2122257934}
-    - target: {fileID: 4371141936774760169, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSaveButton
-      objectReference: {fileID: 0}
     - target: {fileID: 6386369310946937457, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -640,10 +563,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7583874736925654160, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_text
-      value: Music Volume
-      objectReference: {fileID: 0}
     - target: {fileID: 7842859442169843808, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -651,31 +570,12 @@ PrefabInstance:
     - target: {fileID: 7842859442169843808, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8367867139040263472, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_text
-      value: SFX Volume
-      objectReference: {fileID: 0}
-    - target: {fileID: 8729289955626128968, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: m_text
-      value: Master Volume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f11e745113472419402090bd130bb8, type: 3}
---- !u!114 &2122257934 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
-  m_PrefabInstance: {fileID: 2122257932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d1fc5348f4b4004792fd4fd5425991b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
 --- !u!1001 &8797220958348279389
 PrefabInstance:
   m_ObjectHideFlags: 0

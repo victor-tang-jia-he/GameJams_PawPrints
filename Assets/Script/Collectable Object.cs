@@ -7,25 +7,17 @@ public class CollectableObject : MonoBehaviour, IInteractable
 {
     public InteractableItemInfo itemInfo;
     public MeshFilter meshFilter;
-    public float showDuration = 3.0f;
 
-    private float showTimer = 0.0f;
-    private bool isShowing = false;
+    private bool canInteract = false;
 
     private DialogueManager dialogueManager;
-    private PlayerInputHandler playerInputHandler;
-    private MeshRenderer meshRenderer;
 
     static public string PLAYER_TAG = "Player"; // TODO : Add it to the player
 
-    public void GetScanned()
+    public void SetInteractEnabled(bool enabled)
     {
-        showTimer = showDuration;
-        isShowing = true;
-        meshRenderer.enabled = true;
+        canInteract = enabled;
     }
-
-
     public void Awake()
     {
         if (itemInfo == null)
@@ -35,33 +27,20 @@ public class CollectableObject : MonoBehaviour, IInteractable
         }
 
         meshFilter = GetComponent<MeshFilter>();
-        meshFilter.mesh = itemInfo.mesh;
-        meshRenderer = GetComponent<MeshRenderer>();
-        meshRenderer.enabled = false;
+        if (itemInfo.mesh != null)
+        {
+            meshFilter.mesh = itemInfo.mesh;
+        }
     }
 
     private void Start()
     {
-        dialogueManager = CoreSystem.Instance.GetService<DialogueManager>() ;
-        playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
+        dialogueManager = CoreSystem.Instance.GetService<DialogueManager>();
     }
-    private void Update()
-    {
-        if (isShowing)
-        {
-            showTimer -= Time.deltaTime;
-            if (showTimer <= 0.0f)
-            {
-                isShowing = false;
-                showTimer = 0.0f;
-                meshRenderer.enabled = false;
-            }
-        }
-    }
-    // Called by the player
+
     void IInteractable.Interact()
     {
-        if (!isShowing) return;
+        if (!canInteract) return;
 
         if (dialogueManager != null)
         {
@@ -69,10 +48,10 @@ public class CollectableObject : MonoBehaviour, IInteractable
         }
         DialogueManager.OnDialogueEnded += AutoDeleteOnDialogueEnded;
     }
-
     private void AutoDeleteOnDialogueEnded()
     {
         DialogueManager.OnDialogueEnded -= AutoDeleteOnDialogueEnded;
+        CoreSystem.Instance?.GetService<Inventory>().AddItemIntoInventory(itemInfo);
         Destroy(gameObject);
     }
 

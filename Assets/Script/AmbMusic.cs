@@ -11,11 +11,13 @@ public class AmbMusic : MonoBehaviour
 
     private void Start()
     {
+        ambMusicInstance = FMODUnity.RuntimeManager.CreateInstance(ambMusicReference);
+        ambMusicInstance.start();
         uiManager = CoreSystem.Instance.GetService<UIManager>();
+
         if (uiManager != null)
         {
             uiManager.OnSceneChange += StopAmbMusic;
-            ambMusicInstance.start();
         }
         else
         {

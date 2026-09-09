@@ -7,6 +7,7 @@ public class SpatialCallListenerMesh : SpatialCallListener
 
     private StateMachine glowStateMachine;
     private Material material;
+    private CollectableObject collectableObjectComponent;
 
     [SerializeField]
     private float glowingTime;
@@ -19,6 +20,7 @@ public class SpatialCallListenerMesh : SpatialCallListener
     {
 
         meshRenderer = GetComponent<MeshRenderer>();
+        collectableObjectComponent = GetComponent<CollectableObject>();
 
         glowStateMachine = GlowStateMachineInit.Init(glowingTime, glowedTime, unglowingTime);
         glowStateMachine.Initialize<UnglowState>();
@@ -59,6 +61,7 @@ public class SpatialCallListenerMesh : SpatialCallListener
     private void OnGlow()
     {
         meshRenderer.enabled = true;
+        collectableObjectComponent.SetInteractEnabled(true);
     }
 
 
@@ -72,5 +75,6 @@ public class SpatialCallListenerMesh : SpatialCallListener
     private void OnUnglow()
     {
         meshRenderer.enabled = false;
+        collectableObjectComponent.SetInteractEnabled(false);
     }
 }
