@@ -153,6 +153,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 657e4278-243f-4cc2-9bc8-874ecc2a03f1
     m_ActionName: 'Player/Return[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 1e77334a6fbe2c6409e24edfe41c4844, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3906743b-b2ef-4740-919c-8e007cf76de2
+    m_ActionName: 'Player/OpenInventory[/Keyboard/c]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

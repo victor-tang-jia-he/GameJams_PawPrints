@@ -96,6 +96,10 @@ public class UIManager : Manager<UIManager>
         {
             OnBackButton();
         }
+        if (playerInputHandler.GetInventoryPressed())
+        {
+            OnInventoryButton();
+        }
     }
 
     protected override void OnEnable()
@@ -146,6 +150,15 @@ public class UIManager : Manager<UIManager>
         Application.Quit();
     }
 
+    public void OnInventoryButton()
+    {
+        if (currentMenuType == MenuType.InGame)
+        {
+            ShowPanel(MenuType.Inventory);
+            return;
+        }
+    }
+
     public void UniversalShowPanel(int menuType)
     {
         ShowPanel((MenuType)menuType);
@@ -156,7 +169,9 @@ public class UIManager : Manager<UIManager>
         if (lastMenuType == MenuType.None) return;
 
         if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
-            !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause))
+            !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause) &&
+            !(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Inventory))
+
         {
             ShowPanel(lastMenuType);
             return;
@@ -195,7 +210,11 @@ public class UIManager : Manager<UIManager>
             case MenuType.Dialogue:
                 dialogueUI.SetActive(true);
                 break;
+            case MenuType.Inventory:
+                inventoryUI.SetActive(true);
+                break;
             default:
+                Debug.LogWarning("UIManager: Attempted to show an unhandled menu type.");
                 break;
         }
         lastMenuType = currentMenuType;
@@ -221,7 +240,11 @@ public class UIManager : Manager<UIManager>
             case MenuType.Dialogue:
                 dialogueUI.SetActive(false);
                 break;
+            case MenuType.Inventory:
+                inventoryUI.SetActive(false);
+                break;
             default:
+                Debug.LogWarning("UIManager: Attempted to hide an unhandled menu type.");
                 break;
         }
     }

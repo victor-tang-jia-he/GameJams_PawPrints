@@ -12,6 +12,7 @@ public class PlayerInputHandler : Manager<PlayerInputHandler>
     private bool interactPressed = false;
     private bool submitPressed = false;
     private bool escapePressed = false;
+    private bool inventoryPressed = false;
 
     public UnityEvent OnPlayerCallInput = new();
     #endregion
@@ -94,6 +95,18 @@ public class PlayerInputHandler : Manager<PlayerInputHandler>
         }
     }
 
+    public void InventoryPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            inventoryPressed = true;
+        }
+        else if (context.canceled)
+        {
+            inventoryPressed = false;
+        }
+    }
+
     // for any of the below 'Get' methods, if we're getting it then we're also using it,
     // which means we should set it to false so that it can't be used again until actually
     // pressed again.
@@ -121,6 +134,13 @@ public class PlayerInputHandler : Manager<PlayerInputHandler>
     {
         bool result = escapePressed;
         escapePressed = false;
+        return result;
+    }
+
+    public bool GetInventoryPressed()
+    {
+        bool result = inventoryPressed;
+        inventoryPressed = false;
         return result;
     }
     #endregion
