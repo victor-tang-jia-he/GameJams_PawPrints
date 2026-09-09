@@ -76,7 +76,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{e4243c7e-0e21-4378-9137-7f4475e0055a}">
 		<property name="volume">
-			<value>2.5</value>
+			<value>1.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{00cb47c0-f142-4399-a66e-469b5ede489a}</destination>
@@ -160,6 +160,7 @@
 		<relationship name="effects">
 			<destination>{a5e4b3c4-a0ea-49df-a39b-31669783292c}</destination>
 			<destination>{97104340-30d4-4e74-8f39-cafae6b34769}</destination>
+			<destination>{ef3ba221-009f-4c39-8191-758698467b98}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{bd228165-6b5f-440b-9774-aef4227cd25e}" />
@@ -172,6 +173,9 @@
 	<object class="MixerBusPanner" id="{29026f9e-8f9e-4896-b252-7472b413b00c}" />
 	<object class="MixerBusFader" id="{a5e4b3c4-a0ea-49df-a39b-31669783292c}" />
 	<object class="SFXReverbEffect" id="{97104340-30d4-4e74-8f39-cafae6b34769}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="earlyDelay">
 			<value>162</value>
 		</property>
@@ -193,6 +197,17 @@
 		<property name="wetLevel">
 			<value>-12.3000002</value>
 		</property>
+	</object>
+	<object class="MixerSend" id="{ef3ba221-009f-4c39-8191-758698467b98}">
+		<property name="level">
+			<value>-10</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{160dfad7-098a-43f3-9ab3-f70126803856}</destination>
+		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{23984ed4-ffcd-4c70-9574-7170a249d01d}" />
 </objects>
