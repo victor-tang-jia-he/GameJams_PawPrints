@@ -15,6 +15,6 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(moveInput.x, 0,moveInput.y).normalized;
-        characterController.Move(movement * MovementSpeed * Time.fixedDeltaTime);
+        characterController.Move(MovementSpeed * Time.fixedDeltaTime * movement);
     }
 }
