@@ -16,10 +16,18 @@ public class SpatialCallListenerMaterial : SpatialCallListener
     private StateMachine glowStateMachine;
     private Material material;
 
+    [SerializeField]
+    private float glowingTime;
+    [SerializeField]
+    private float glowedTime;
+    [SerializeField]
+    private float unglowingTime;
+
     private void Awake()
     {
-        glowStateMachine = GlowStateMachineInit.Init(2, 5, 2);
+        glowStateMachine = GlowStateMachineInit.Init(glowingTime, glowedTime, unglowingTime);
         glowStateMachine.Initialize<UnglowState>();
+        OnUnglow();
 
         GlowingState glowingState = glowStateMachine.GetState<GlowingState>();
         FullyGlowedState fullyGlowedState = glowStateMachine.GetState<FullyGlowedState>();
