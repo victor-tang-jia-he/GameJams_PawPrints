@@ -61,7 +61,7 @@
 			<destination>{20ace1a2-e14f-44d8-9056-49942c2e5e11}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{e8af6863-a7b3-465b-a801-e39d5a3a4277}</destination>
+			<destination>{3861ce30-7719-4282-b790-b94180d395db}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{0b24beb9-bedf-4a5e-8ad2-2b05ae5354d6}">
@@ -109,6 +109,9 @@
 	<object class="EventMixerMaster" id="{cc961d5c-a5b7-434f-bdbc-cef01fbf7d59}">
 		<relationship name="automators">
 			<destination>{ad850dd0-5400-40e5-a413-e8bc03d8e7ec}</destination>
+		</relationship>
+		<relationship name="modulators">
+			<destination>{10fa0afe-a50f-4ab0-9fce-29ec8b2657a0}</destination>
 		</relationship>
 		<relationship name="effectChain">
 			<destination>{883264bd-5fab-4474-a344-9adac69299a3}</destination>
@@ -218,6 +221,23 @@
 			<destination>{682a4064-95a0-4d8f-8f16-c9d9558cd6f7}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{10fa0afe-a50f-4ab0-9fce-29ec8b2657a0}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>2000</value>
+		</property>
+		<property name="releaseTime">
+			<value>2000</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{883264bd-5fab-4474-a344-9adac69299a3}">
 		<relationship name="effects">
 			<destination>{909f8e1c-3cef-4bff-88c8-0c0c07ac2483}</destination>
@@ -303,10 +323,10 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-4</value>
 		</property>
 		<property name="curveShape">
-			<value>0.278706044</value>
+			<value>0.986048579</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{e3348d51-3ff5-4b2e-8faa-9c6ce05f8088}">
@@ -314,7 +334,7 @@
 			<value>100</value>
 		</property>
 		<property name="value">
-			<value>-15</value>
+			<value>-20</value>
 		</property>
 	</object>
 	<object class="Automator" id="{9b59a89a-7460-48c6-99a3-7e730090f71d}">
