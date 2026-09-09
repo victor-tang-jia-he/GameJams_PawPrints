@@ -2,6 +2,7 @@ using Com.DefaultCompany.LostSoul;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -22,6 +23,8 @@ public enum MenuType
 
 public class UIManager : Manager<UIManager>
 {
+    public Action OnSceneChange;
+
     [Header("Fade Panel")]
     [SerializeField] private float defaultFadeDuration = 1f;
     [SerializeField] private Image fadePanel;
@@ -120,11 +123,8 @@ public class UIManager : Manager<UIManager>
     // button function with Coroutine to handle fade in and fade out
     private IEnumerator PlayButtonCoroutine()
     {
-        yield return FadeIn();
+        ChangeScene(1);
         ShowPanel(MenuType.InGame);
-        SceneManager.LoadScene(1);
-        yield return new WaitForSeconds(1f);
-        yield return FadeOut();
     }
 
     public void OnSettingButton()
@@ -240,6 +240,7 @@ public class UIManager : Manager<UIManager>
 
     private IEnumerator StartChangingScene(int nextSceneId)
     {
+        OnSceneChange?.Invoke();
         yield return FadeIn(1f);
         SceneManager.LoadScene(nextSceneId, LoadSceneMode.Single);
         yield return new WaitForSeconds(1f);
