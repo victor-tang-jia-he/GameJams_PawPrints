@@ -1,55 +1,75 @@
+using Com.DefaultCompany.LostSoul;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerInputHandler : MonoBehaviour
+public class PlayerInputHandler : Manager<PlayerInputHandler>
 {
     #region Script Parameters
     #endregion
 
     #region Fields
-    private bool _interactPressed = false;
-    private bool _submitPressed = false;
+    private bool interactPressed = false;
+    private bool submitPressed = false;
+    private bool escapePressed = false;
+
+    public UnityEvent OnPlayerCallInput = new();
     #endregion
 
     #region Properties
-    static public PlayerInputHandler Instance;
+    public Vector2 MoveDirection { get; private set; } = Vector2.zero;
+
     public bool InteractPressed
     {
         get
         {
-            bool result = _interactPressed;
-            _interactPressed = false;
+            bool result = interactPressed;
+            interactPressed = false;
             return result;
         }
-        private set { _interactPressed = value; }
+        private set { interactPressed = value; }
     }
     #endregion
 
     #region Unity Methods
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
     #endregion
 
     #region Methods
-
-
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            MoveDirection = context.ReadValue<Vector2>();
+        }
+        else if (context.canceled)
+        {
+            MoveDirection = context.ReadValue<Vector2>();
+        }
+    }
+    public void OnCall(InputAction.CallbackContext callbackContext)
+    {
+        OnPlayerCallInput.Invoke();
+    }
+    public void EscapeKeyPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            escapePressed = true;
+        }
+        else if (context.canceled)
+        {
+            escapePressed = false;
+        }
+    }
     public void InteractButtonPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _interactPressed = true;
+            interactPressed = true;
         }
         else if (context.canceled)
         {
-            _interactPressed = false;
+            interactPressed = false;
         }
     }
 
@@ -58,11 +78,11 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Submit pressed");
-            _submitPressed = true;
+            submitPressed = true;
         }
         else if (context.canceled)
         {
-            _submitPressed = false;
+            submitPressed = false;
         }
     }
 
@@ -80,21 +100,28 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool GetInteractPressed()
     {
-        bool result = _interactPressed;
-        _interactPressed = false;
+        bool result = interactPressed;
+        interactPressed = false;
         return result;
     }
 
     public bool GetSubmitPressed()
     {
-        bool result = _submitPressed;
-        _submitPressed = false;
+        bool result = submitPressed;
+        submitPressed = false;
         return result;
     }
 
     public void RegisterSubmitPressed()
     {
-        _submitPressed = false;
+        submitPressed = false;
+    }
+
+    public bool GetEscapePressed()
+    {
+        bool result = escapePressed;
+        escapePressed = false;
+        return result;
     }
     #endregion
 

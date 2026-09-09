@@ -1,3 +1,4 @@
+using Com.DefaultCompany.LostSoul;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,13 @@ public class PlayerCall : MonoBehaviour
 
     private bool isOnCooldown = false;
     private Timer cooldownTimer;
-    
+
+    private GlobalCallInvoker callInvoker;
+    private void Start()
+    {
+        callInvoker = CoreSystem.Instance.GetService<GlobalCallInvoker>();
+        CoreSystem.Instance.GetService<PlayerInputHandler>().OnPlayerCallInput.AddListener(Call);
+    }
     void Update()
     {
         if (isOnCooldown)
@@ -19,7 +26,7 @@ public class PlayerCall : MonoBehaviour
         }
     }
 
-    public void Call(InputAction.CallbackContext callbackContext)
+    public void Call()
     {
         
         if (isOnCooldown)
@@ -30,7 +37,7 @@ public class PlayerCall : MonoBehaviour
         isOnCooldown = true;
         cooldownTimer = new Timer(callCooldown);
 
-        GlobalCallInvoker.Singleton.GlobalCall(transform.position, CallRadius, 1.0f);
+       callInvoker.GlobalCall(transform.position, CallRadius, 1.0f);
         
     }
 }

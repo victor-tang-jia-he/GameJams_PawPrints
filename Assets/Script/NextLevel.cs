@@ -1,28 +1,16 @@
-using System.Collections;
+using Com.DefaultCompany.LostSoul;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour, IInteractable
 {
-    public int nextlevelIndex;
+    public int nextSceneId;
     public InteractableItemInfo objectMissingItemInfo;
     public List<InteractableItemInfo> requiredCollectableObjects;
 
-    // remove later
-    private void Update()
+    void IInteractable.Interact()
     {
-        if (PlayerInputHandler.Instance)
-        {
-            if (PlayerInputHandler.Instance.GetInteractPressed())
-            {
-                Interact();
-            }
-        }
-    }
-    public void Interact()
-    {
-        Inventory inventory = Inventory.Instance;
+        Inventory inventory = CoreSystem.Instance.GetService<Inventory>();
         if (inventory)
         {
             bool isAllRequiredObjGetted = true;
@@ -36,14 +24,11 @@ public class NextLevel : MonoBehaviour, IInteractable
             }
             if (isAllRequiredObjGetted)
             {
-                UIManager.Instance.ChangeScene(nextlevelIndex);
+                CoreSystem.Instance.GetService<UIManager>().ChangeScene(nextSceneId);
                 return;
             }
         }
 
-        if (DialogueManager.Instance != null)
-        {
-            StartCoroutine(DialogueManager.Instance.CO_EnterDialogue(objectMissingItemInfo));
-        }
+        StartCoroutine(CoreSystem.Instance.GetService<DialogueManager>().CO_EnterDialogue(objectMissingItemInfo));
     }
 }
