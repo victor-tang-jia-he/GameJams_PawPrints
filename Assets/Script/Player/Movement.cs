@@ -1,3 +1,4 @@
+using Com.DefaultCompany.LostSoul;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,14 +8,15 @@ public class Movement : MonoBehaviour
     private CharacterController characterController;
 
     public float MovementSpeed;
-    private Vector2 moveInput;
-    public void OnMove(InputAction.CallbackContext callbackContext)
+    private PlayerInputHandler inputHandler;
+
+    private void Start()
     {
-        moveInput = callbackContext.ReadValue<Vector2>();
+        inputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
     }
     private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(moveInput.x, 0,moveInput.y).normalized;
+        Vector3 movement = new Vector3(inputHandler.MoveDirection.x, 0, inputHandler.MoveDirection.y).normalized;
         characterController.Move(movement * MovementSpeed * Time.fixedDeltaTime);
     }
 }

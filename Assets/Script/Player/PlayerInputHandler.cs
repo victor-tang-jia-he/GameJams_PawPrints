@@ -1,7 +1,8 @@
+using Com.DefaultCompany.LostSoul;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputHandler : MonoBehaviour
+public class PlayerInputHandler : Manager<PlayerInputHandler>
 {
     #region Script Parameters
     #endregion
@@ -13,7 +14,8 @@ public class PlayerInputHandler : MonoBehaviour
     #endregion
 
     #region Properties
-    static public PlayerInputHandler Instance;
+    public Vector2 MoveDirection { get; private set; } = Vector2.zero;
+
     public bool InteractPressed
     {
         get
@@ -27,20 +29,20 @@ public class PlayerInputHandler : MonoBehaviour
     #endregion
 
     #region Unity Methods
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
     #endregion
 
     #region Methods
-
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            MoveDirection = context.ReadValue<Vector2>();
+        }
+        else if (context.canceled)
+        {
+            MoveDirection = context.ReadValue<Vector2>();
+        }
+    }
     public void EscapeKeyPressed(InputAction.CallbackContext context)
     {
         if (context.performed)

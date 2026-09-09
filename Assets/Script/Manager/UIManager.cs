@@ -1,3 +1,5 @@
+using Com.DefaultCompany.LostSoul;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,10 +20,8 @@ public enum MenuType
     Inventory
 }
 
-public class UIManager : MonoBehaviour
+public class UIManager : Manager<UIManager>
 {
-    static public UIManager Instance;
-
     [Header("Fade Panel")]
     [SerializeField] private float defaultFadeDuration = 1f;
     [SerializeField] private Image fadePanel;
@@ -47,15 +47,6 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-
         if (fadePanel == null
             || MainMenu == null
             || InGameUi == null
@@ -79,16 +70,12 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         FadeOut();
-        ShowPanel(MenuType.Main);
+        ShowPanel(DefaultMenu);
     }
 
     private void Update()
     {
-        if (playerInputHandler == null && PlayerInputHandler.Instance != null)
-        {
-            playerInputHandler = PlayerInputHandler.Instance;
-        }
-        if (playerInputHandler != null && playerInputHandler.GetEscapePressed())
+        if (playerInputHandler.GetEscapePressed())
         {
             if (currentMenuType == MenuType.Pause)
             {
@@ -102,6 +89,26 @@ public class UIManager : MonoBehaviour
             {
                 ShowPanel(MenuType.Main);
             }
+        }
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        CoreSystem.OnServiceRegistered += SetService;
+    }
+
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        CoreSystem.OnServiceRegistered -= SetService;
+    }
+    private void SetService(Type serviceType)
+    {
+        if (serviceType == typeof(PlayerInputHandler))
+        {
+            playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
         }
     }
 
@@ -226,16 +233,16 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    public void ChangeScene(string nextSceneName)
+    public void ChangeScene(int nextSceneId)
     {
-        StartCoroutine(StartChangingScene(nextSceneName));
+        StartCoroutine(StartChangingScene(nextSceneId));
     }
 
-    private IEnumerator StartChangingScene(string nextSceneName)
+    private IEnumerator StartChangingScene(int nextSceneId)
     {
-        yield return Instance.FadeIn(1f);
-        SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        yield return FadeIn(1f);
+        SceneManager.LoadScene(nextSceneId, LoadSceneMode.Single);
         yield return new WaitForSeconds(1f);
-        yield return Instance.FadeOut(1f);
+        yield return FadeOut(1f);
     }
 }

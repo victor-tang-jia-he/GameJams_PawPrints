@@ -49,3 +49,17 @@ MonoBehaviour:
   dialogueText: {fileID: 0}
   dialoguePanel: {fileID: 0}
   uiBackgroudImageDialogue: {fileID: 0}
+  submitEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  displayLineLetterEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
