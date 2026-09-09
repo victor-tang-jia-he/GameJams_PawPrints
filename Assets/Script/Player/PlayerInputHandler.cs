@@ -1,5 +1,6 @@
 using Com.DefaultCompany.LostSoul;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : Manager<PlayerInputHandler>
@@ -11,6 +12,8 @@ public class PlayerInputHandler : Manager<PlayerInputHandler>
     private bool interactPressed = false;
     private bool submitPressed = false;
     private bool escapePressed = false;
+
+    public UnityEvent OnPlayerCallInput = new();
     #endregion
 
     #region Properties
@@ -42,6 +45,10 @@ public class PlayerInputHandler : Manager<PlayerInputHandler>
         {
             MoveDirection = context.ReadValue<Vector2>();
         }
+    }
+    public void OnCall(InputAction.CallbackContext callbackContext)
+    {
+        OnPlayerCallInput.Invoke();
     }
     public void EscapeKeyPressed(InputAction.CallbackContext context)
     {
