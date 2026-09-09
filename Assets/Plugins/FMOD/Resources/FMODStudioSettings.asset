@@ -406,7 +406,9 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - AMBIENCE
   - MUSIC
+  - SFX
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
