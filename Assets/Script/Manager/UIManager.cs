@@ -1,3 +1,5 @@
+using Com.DefaultCompany.LostSoul;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,9 +20,9 @@ public enum MenuType
     Inventory
 }
 
-public class UIManager : MonoBehaviour
+public class UIManager : Manager<UIManager>
 {
-    static public UIManager Instance;
+    public Action OnSceneChange;
 
     [Header("Fade Panel")]
     [SerializeField] private float defaultFadeDuration = 1f;
@@ -41,21 +43,14 @@ public class UIManager : MonoBehaviour
 
     private MenuType currentMenuType = MenuType.None;
 
+    private MenuType lastMenuType = MenuType.None;
+
     public bool IsFadingProcess { get; private set; } = false;
 
     private PlayerInputHandler playerInputHandler;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-
         if (fadePanel == null
             || MainMenu == null
             || InGameUi == null
@@ -79,29 +74,45 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         FadeOut();
-        ShowPanel(MenuType.Main);
+        ShowPanel(DefaultMenu);
     }
 
     private void Update()
     {
-        if (playerInputHandler == null && PlayerInputHandler.Instance != null)
+        if (playerInputHandler.GetEscapePressed())
         {
-            playerInputHandler = PlayerInputHandler.Instance;
-        }
-        if (playerInputHandler != null && playerInputHandler.GetEscapePressed())
-        {
-            if (currentMenuType == MenuType.Pause)
+            if (lastMenuType == MenuType.None) return;
+
+            if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
+                !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause))
             {
-                ShowPanel(MenuType.InGame);
+                ShowPanel(lastMenuType);
+                return;
             }
-            else if (currentMenuType == MenuType.InGame)
+            if (currentMenuType == MenuType.InGame)
             {
                 ShowPanel(MenuType.Pause);
             }
-            else if (currentMenuType == MenuType.Settings)
-            {
-                ShowPanel(MenuType.Main);
-            }
+        }
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        CoreSystem.OnServiceRegistered += SetService;
+    }
+
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        CoreSystem.OnServiceRegistered -= SetService;
+    }
+    private void SetService(Type serviceType)
+    {
+        if (serviceType == typeof(PlayerInputHandler))
+        {
+            playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
         }
     }
 
@@ -113,11 +124,12 @@ public class UIManager : MonoBehaviour
     // button function with Coroutine to handle fade in and fade out
     private IEnumerator PlayButtonCoroutine()
     {
-        yield return FadeIn();
+        OnSceneChange?.Invoke();
+        yield return FadeIn(1f);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
         ShowPanel(MenuType.InGame);
-        SceneManager.LoadScene(1);
         yield return new WaitForSeconds(1f);
-        yield return FadeOut();
+        yield return FadeOut(1f);
     }
 
     public void OnSettingButton()
@@ -167,6 +179,7 @@ public class UIManager : MonoBehaviour
             default:
                 break;
         }
+        lastMenuType = currentMenuType;
         currentMenuType = menuType;
     }
 
@@ -226,16 +239,17 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    public void ChangeScene(string nextSceneName)
+    public void ChangeScene(int nextSceneId)
     {
-        StartCoroutine(StartChangingScene(nextSceneName));
+        StartCoroutine(StartChangingScene(nextSceneId));
     }
 
-    private IEnumerator StartChangingScene(string nextSceneName)
+    private IEnumerator StartChangingScene(int nextSceneId)
     {
-        yield return Instance.FadeIn(1f);
-        SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        OnSceneChange?.Invoke();
+        yield return FadeIn(1f);
+        SceneManager.LoadScene(nextSceneId, LoadSceneMode.Single);
         yield return new WaitForSeconds(1f);
-        yield return Instance.FadeOut(1f);
+        yield return FadeOut(1f);
     }
 }

@@ -1,3 +1,4 @@
+using Com.DefaultCompany.LostSoul;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
@@ -41,12 +42,11 @@ public class CollectableObject : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        dialogueManager = DialogueManager.Instance;
+        dialogueManager = CoreSystem.Instance.GetService<DialogueManager>() ;
+        playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
     }
     private void Update()
     {
-        if (playerInputHandler == null && (playerInputHandler = PlayerInputHandler.Instance) == null) return; // Lazy getter
-
         if (isShowing)
         {
             showTimer -= Time.deltaTime;

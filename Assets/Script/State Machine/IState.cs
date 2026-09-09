@@ -2,8 +2,8 @@ using UnityEngine;
 
 public interface IState
 {
-    void Enter();
-    void Update();
-    void FixUpdate();
-    void Exit();
+    void Enter(StateMachine stateMachine);
+    void Update(StateMachine stateMachine);
+    void FixUpdate(StateMachine stateMachine);
+    void Exit(StateMachine stateMachine);
 }

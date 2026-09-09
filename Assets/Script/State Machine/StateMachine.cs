@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #region Methods
-public class StatsMachine
+public class StateMachine
 {
     public IState CurrentState { get; private set; }
 
@@ -14,12 +14,20 @@ public class StatsMachine
         _states[typeof(T)] = state;
     }
 
+    public T GetCurrentState<T>() where T : IState
+    {
+        return (T)CurrentState;
+    }
+    public T GetState<T>() where T: IState
+    {
+        return (T)_states[typeof(T)];
+    }
     public void Initialize<T>() where T : IState
     {
         if (_states[typeof(T)] != null)
         {
             CurrentState = _states[typeof(T)];
-            CurrentState.Enter();
+            CurrentState.Enter(this);
         }
         else
         {
@@ -36,12 +44,12 @@ public class StatsMachine
             Debug.LogError($"Stats {typeof(T)} does not exist or isn't set");
         }
 
-        CurrentState?.Exit();
+        CurrentState?.Exit(this);
         CurrentState = _states[typeof(T)];
-        CurrentState.Enter();
+        CurrentState.Enter(this);
     }
 
-    public void Update() => CurrentState?.Update();
-    public void FixUpdate() => CurrentState?.FixUpdate();
+    public void Update() => CurrentState?.Update(this);
+    public void FixUpdate() => CurrentState?.FixUpdate(this);
 }
 #endregion
