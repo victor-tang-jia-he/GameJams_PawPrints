@@ -1,23 +1,10 @@
+using Com.DefaultCompany.LostSoul;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : Manager<Inventory>
 {
-    public static Inventory Instance;
-
     private readonly Dictionary<int, InteractableItemInfo> inventory = new();
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
 
     public void AddItemIntoInventory(InteractableItemInfo itemInfo)
     {

@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 namespace Com.DefaultCompany.LostSoul
@@ -17,10 +18,23 @@ namespace Com.DefaultCompany.LostSoul
         #endregion
 
         #region Unity Methods
+        private void OnEnable()
+        {
+            CoreSystem.OnServiceRegistered += SetService;
+        }
+
+
+        private void OnDisable()
+        {
+            CoreSystem.OnServiceRegistered -= SetService;
+        }
+
+        private void Start()
+        {
+            playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
+        }
         private void Update()
         {
-            if (playerInputHandler == null && (playerInputHandler = PlayerInputHandler.Instance) == null) return; // Lazy getter
-
             if (playerInputHandler.GetInteractPressed())
             {
                 if (target)
@@ -49,6 +63,13 @@ namespace Com.DefaultCompany.LostSoul
         #endregion
 
         #region Implementation
+        private void SetService(Type serviceType)
+        {
+            if (serviceType == typeof(PlayerInputHandler))
+            {
+                playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
+            }
+        }
         #endregion
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{e1e50a80-0e9c-4999-94d9-362c1a2b98eb}">
+		<property name="assetPath">
+			<value>amb_spring_birds-002.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.25</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{88a519c1-0e90-435a-a906-950600317a7b}</destination>
+		</relationship>
+	</object>
+</objects>

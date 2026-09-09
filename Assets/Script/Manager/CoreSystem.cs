@@ -69,14 +69,6 @@ namespace Com.DefaultCompany.LostSoul
 
         public static event Action OnInit;
 
-        #region Debug on/off
-        public bool debugError = true;
-        public bool debugWarning = true;
-        public bool debugInfo = true;
-        public bool debugSuccess = true;
-        public bool debugDebug = true;
-        #endregion
-
         #region Unity Methods
         private void Awake()
         {
