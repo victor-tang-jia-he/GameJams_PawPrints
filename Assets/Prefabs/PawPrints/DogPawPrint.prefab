@@ -50,7 +50,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   spriteRenderer: {fileID: 1939109854579868199}
-  disableTime: 0
+  visibleTime: 0
+  glowingTime: 1
+  glowedTime: 0.5
+  unglowingTime: 1
 --- !u!212 &1939109854579868199
 SpriteRenderer:
   serializedVersion: 2
@@ -125,7 +128,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
