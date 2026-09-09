@@ -2,7 +2,6 @@ using Com.DefaultCompany.LostSoul;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -123,8 +122,12 @@ public class UIManager : Manager<UIManager>
     // button function with Coroutine to handle fade in and fade out
     private IEnumerator PlayButtonCoroutine()
     {
-        ChangeScene(1);
+        OnSceneChange?.Invoke();
+        yield return FadeIn(1f);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
         ShowPanel(MenuType.InGame);
+        yield return new WaitForSeconds(1f);
+        yield return FadeOut(1f);
     }
 
     public void OnSettingButton()
