@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{ed90eb43-dc71-4e72-bb27-23942ad68486}">
+	<object class="AudioFile" id="{c8169784-087e-4ce6-a8dd-31843de92aa2}">
 		<property name="assetPath">
-			<value>sfx_dog_bark-001.wav</value>
+			<value>sfx_dog_bark-009.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.3125</value>
+			<value>1.5</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{88a519c1-0e90-435a-a906-950600317a7b}</destination>
