@@ -7,6 +7,7 @@ public class NextLevel : MonoBehaviour, IInteractable
     public int nextSceneId;
     public InteractableItemInfo objectMissingItemInfo;
     public List<InteractableItemInfo> requiredCollectableObjects;
+    public MenuType menuType = MenuType.Dialogue;
 
     void IInteractable.Interact()
     {
@@ -24,7 +25,7 @@ public class NextLevel : MonoBehaviour, IInteractable
             }
             if (isAllRequiredObjGetted)
             {
-                CoreSystem.Instance.GetService<UIManager>().ChangeScene(nextSceneId);
+                CoreSystem.Instance.GetService<UIManager>().ChangeScene(nextSceneId, menuType);
                 return;
             }
         }

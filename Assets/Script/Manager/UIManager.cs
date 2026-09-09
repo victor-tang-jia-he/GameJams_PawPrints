@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 /// <summary>
 /// Following dirty was made by me bcs lazy to make a proper UI manager with a proper state machine and stuff, but this is just a simple project so I made it dirty and fast. :)
@@ -24,6 +25,13 @@ public class UIManager : Manager<UIManager>
 {
     public Action OnSceneChange;
 
+    [Header("Intro video")]
+    [SerializeField] private VideoPlayer videoPlayer;
+
+    [Header("Scene Id")]
+    [SerializeField] private int mainMenuSceneId = 1;
+    [SerializeField] private int inGameSceneId = 2;
+
     [Header("Fade Panel")]
     [SerializeField] private float defaultFadeDuration = 1f;
     [SerializeField] private Image fadePanel;
@@ -32,12 +40,10 @@ public class UIManager : Manager<UIManager>
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject InGameUi;
     [SerializeField] private GameObject pauseMenu;
-
     [SerializeField] private GameObject settingsMenu;
-
     [SerializeField] private GameObject dialogueUI;
-
     [SerializeField] private GameObject inventoryUI;
+
 
     public MenuType DefaultMenu;
 
@@ -70,10 +76,16 @@ public class UIManager : Manager<UIManager>
         settingsMenu.SetActive(false);
         dialogueUI.SetActive(false);
         inventoryUI.SetActive(false);
+        fadePanel.gameObject.SetActive(false);
+
+        videoPlayer.loopPointReached += OnVideoFinished;
     }
 
-    private void Start()
+    private void OnVideoFinished(VideoPlayer player)
     {
+        videoPlayer.loopPointReached -= OnVideoFinished;
+        fadePanel.gameObject.SetActive(true);
+        videoPlayer.gameObject.SetActive(false);
         FadeOut();
         ShowPanel(DefaultMenu);
     }
@@ -113,30 +125,11 @@ public class UIManager : Manager<UIManager>
     #region Button Events
     public void OnPlayButton()
     {
-        StartCoroutine(CO_PlayButton());
+        StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame));
     }
     public void OnQuitPauseButton()
     {
-        StartCoroutine(CO_QuitToMain());
-    }
-    // button function with Coroutine to handle fade in and fade out
-    private IEnumerator CO_PlayButton()
-    {
-        OnSceneChange?.Invoke();
-        yield return FadeIn(1f);
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
-        ShowPanel(MenuType.InGame);
-        yield return new WaitForSeconds(1f);
-        yield return FadeOut(1f);
-    }
-    private IEnumerator CO_QuitToMain()
-    {
-        OnSceneChange?.Invoke();
-        yield return FadeIn(1f);
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
-        ShowPanel(MenuType.Main);
-        yield return new WaitForSeconds(1f);
-        yield return FadeOut(1f);
+        StartCoroutine(StartChangingScene(mainMenuSceneId, MenuType.Main));
     }
 
     public void OnSettingButton()
@@ -265,16 +258,17 @@ public class UIManager : Manager<UIManager>
     }
     #endregion
 
-    public void ChangeScene(int nextSceneId)
+    public void ChangeScene(int nextSceneId, MenuType menuType)
     {
-        StartCoroutine(StartChangingScene(nextSceneId));
+        StartCoroutine(StartChangingScene(nextSceneId, menuType));
     }
 
-    private IEnumerator StartChangingScene(int nextSceneId)
+    private IEnumerator StartChangingScene(int nextSceneId, MenuType menuType)
     {
         OnSceneChange?.Invoke();
         yield return FadeIn(1f);
         SceneManager.LoadScene(nextSceneId, LoadSceneMode.Single);
+        ShowPanel(menuType);
         yield return new WaitForSeconds(1f);
         yield return FadeOut(1f);
     }

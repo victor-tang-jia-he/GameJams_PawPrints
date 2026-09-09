@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bfb1834eaed65418ba8ece1ddeb92c, type: 3}
+  m_Name: "Pointe de fl\xE8che"
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
+  id: 0
+  knotName: "Pointe de fl\xE8che"
+  description: "Une pointe de fl\xE8che sans bout, elle semble avoir \xE9t\xE9 cass\xE9e
+    en deux. Un peu de sang s\xE9ch\xE9 se trouve sur son extr\xE9mit\xE9."
+  mesh: {fileID: 0}
+  backgroundSprite: {fileID: 0}
+  icon: {fileID: 0}
