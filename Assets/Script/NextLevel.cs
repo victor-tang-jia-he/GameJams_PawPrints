@@ -1,26 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour, IInteractable
 {
-    public int nextlevelIndex;
+    public string nextSceneName;
     public InteractableItemInfo objectMissingItemInfo;
     public List<InteractableItemInfo> requiredCollectableObjects;
 
-    // remove later
-    private void Update()
-    {
-        if (PlayerInputHandler.Instance)
-        {
-            if (PlayerInputHandler.Instance.GetInteractPressed())
-            {
-                Interact();
-            }
-        }
-    }
-    public void Interact()
+    void IInteractable.Interact()
     {
         Inventory inventory = Inventory.Instance;
         if (inventory)
@@ -36,7 +23,7 @@ public class NextLevel : MonoBehaviour, IInteractable
             }
             if (isAllRequiredObjGetted)
             {
-                UIManager.Instance.ChangeScene(nextlevelIndex);
+                UIManager.Instance.ChangeScene(nextSceneName);
                 return;
             }
         }

@@ -7,8 +7,9 @@ public class PlayerInputHandler : MonoBehaviour
     #endregion
 
     #region Fields
-    private bool _interactPressed = false;
-    private bool _submitPressed = false;
+    private bool interactPressed = false;
+    private bool submitPressed = false;
+    private bool escapePressed = false;
     #endregion
 
     #region Properties
@@ -17,11 +18,11 @@ public class PlayerInputHandler : MonoBehaviour
     {
         get
         {
-            bool result = _interactPressed;
-            _interactPressed = false;
+            bool result = interactPressed;
+            interactPressed = false;
             return result;
         }
-        private set { _interactPressed = value; }
+        private set { interactPressed = value; }
     }
     #endregion
 
@@ -40,16 +41,26 @@ public class PlayerInputHandler : MonoBehaviour
 
     #region Methods
 
-
+    public void EscapeKeyPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            escapePressed = true;
+        }
+        else if (context.canceled)
+        {
+            escapePressed = false;
+        }
+    }
     public void InteractButtonPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _interactPressed = true;
+            interactPressed = true;
         }
         else if (context.canceled)
         {
-            _interactPressed = false;
+            interactPressed = false;
         }
     }
 
@@ -58,11 +69,11 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Submit pressed");
-            _submitPressed = true;
+            submitPressed = true;
         }
         else if (context.canceled)
         {
-            _submitPressed = false;
+            submitPressed = false;
         }
     }
 
@@ -80,21 +91,28 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool GetInteractPressed()
     {
-        bool result = _interactPressed;
-        _interactPressed = false;
+        bool result = interactPressed;
+        interactPressed = false;
         return result;
     }
 
     public bool GetSubmitPressed()
     {
-        bool result = _submitPressed;
-        _submitPressed = false;
+        bool result = submitPressed;
+        submitPressed = false;
         return result;
     }
 
     public void RegisterSubmitPressed()
     {
-        _submitPressed = false;
+        submitPressed = false;
+    }
+
+    public bool GetEscapePressed()
+    {
+        bool result = escapePressed;
+        escapePressed = false;
+        return result;
     }
     #endregion
 

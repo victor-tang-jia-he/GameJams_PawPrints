@@ -53,6 +53,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Image uiBackgroudImageDialogue;
 
+    [Header("Dialogue Sound Effect")]
+    public FMODUnity.EventReference submitEvent;
+    FMOD.Studio.EventInstance submitEventInstance;
+
+    public FMODUnity.EventReference displayLineLetterEvent;
+    FMOD.Studio.EventInstance displayLineLetterEventInstance;
+
+
     #region Property
     private bool isPlaying = false;
     private bool canContinueToNextLine = false;
