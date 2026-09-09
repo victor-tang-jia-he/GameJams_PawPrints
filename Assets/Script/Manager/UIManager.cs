@@ -43,6 +43,8 @@ public class UIManager : Manager<UIManager>
 
     private MenuType currentMenuType = MenuType.None;
 
+    private MenuType lastMenuType = MenuType.None;
+
     public bool IsFadingProcess { get; private set; } = false;
 
     private PlayerInputHandler playerInputHandler;
@@ -79,17 +81,17 @@ public class UIManager : Manager<UIManager>
     {
         if (playerInputHandler.GetEscapePressed())
         {
-            if (currentMenuType == MenuType.Pause)
+            if (lastMenuType == MenuType.None) return;
+
+            if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
+                !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause))
             {
-                ShowPanel(MenuType.InGame);
+                ShowPanel(lastMenuType);
+                return;
             }
-            else if (currentMenuType == MenuType.InGame)
+            if (currentMenuType == MenuType.InGame)
             {
                 ShowPanel(MenuType.Pause);
-            }
-            else if (currentMenuType == MenuType.Settings)
-            {
-                ShowPanel(MenuType.Main);
             }
         }
     }
@@ -177,6 +179,7 @@ public class UIManager : Manager<UIManager>
             default:
                 break;
         }
+        lastMenuType = currentMenuType;
         currentMenuType = menuType;
     }
 
