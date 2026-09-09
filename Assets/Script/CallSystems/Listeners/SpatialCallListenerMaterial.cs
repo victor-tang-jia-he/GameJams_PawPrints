@@ -10,9 +10,7 @@ public class SpatialCallListenerMaterial : SpatialCallListener
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField]
-    private float visibleTime;
-
+    
     private StateMachine glowStateMachine;
     private Material material;
 
