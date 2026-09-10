@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 1
   knotName: Missing Object
-  description: Test for fading system and next level jump
+  description: Item used when trying to next level but don't have all item
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 0}
   icon: {fileID: 0}
