@@ -141,35 +141,36 @@ public class UIManager : Manager<UIManager>
     #region Button Events
     public void OnPlayButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame));
     }
     public void OnQuitPauseButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         StartCoroutine(StartChangingScene(mainMenuSceneId, MenuType.Main));
+        CoreSystem.Instance.GetService<Inventory>().ResetInventory();
     }
 
     public void OnSettingButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         ShowPanel(MenuType.Settings);
     }
 
     public void OnPauseButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         ShowPanel(MenuType.Pause);
     }
     public void OnQuit()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         Application.Quit();
     }
 
     public void OnInventoryButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         if (currentMenuType == MenuType.InGame)
         {
             ShowPanel(MenuType.Inventory);
@@ -179,16 +180,17 @@ public class UIManager : Manager<UIManager>
 
     public void UniversalShowPanel(int menuType)
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         ShowPanel((MenuType)menuType);
     }
 
     public void OnBackButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         if (lastMenuType == MenuType.None) return;
 
         if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
+            !(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Dialogue) &&
             !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause) &&
             !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Settings) &&
             !(currentMenuType == MenuType.Pause && lastMenuType == MenuType.Settings) &&
@@ -210,7 +212,7 @@ public class UIManager : Manager<UIManager>
 
     public void OnSaveButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         settings.Save();
     }
 

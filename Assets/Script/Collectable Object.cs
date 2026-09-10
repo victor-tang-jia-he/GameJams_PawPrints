@@ -46,11 +46,11 @@ public class CollectableObject : MonoBehaviour, IInteractable
         {
             StartCoroutine(dialogueManager.CO_EnterDialogue(itemInfo));
         }
-        DialogueManager.OnDialogueEnded += AutoDeleteOnDialogueEnded;
+        dialogueManager.OnDialogueEnded.AddListener(AutoDeleteOnDialogueEnded);
     }
     private void AutoDeleteOnDialogueEnded()
     {
-        DialogueManager.OnDialogueEnded -= AutoDeleteOnDialogueEnded;
+        dialogueManager.OnDialogueEnded.RemoveListener(AutoDeleteOnDialogueEnded);
         CoreSystem.Instance?.GetService<Inventory>().AddItemIntoInventory(itemInfo);
         Destroy(gameObject);
     }

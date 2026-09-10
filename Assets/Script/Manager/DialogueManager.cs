@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class StoryKnot
@@ -40,8 +41,8 @@ public class StoryKnot
 public class DialogueManager : Manager<DialogueManager>
 {
     // Listener for those system that need dialogue start and end info
-    public static event Action OnDialogueStarted;
-    public static event Action OnDialogueEnded;
+    public UnityEvent OnDialogueStarted = new();
+    public UnityEvent OnDialogueEnded = new();
 
     [Header("Main dialogue used during the game")]
     [SerializeField] private SO_Story story;
@@ -87,7 +88,7 @@ public class DialogueManager : Manager<DialogueManager>
 
         if (canContinueToNextLine && playerInputHandler.GetSubmitPressed())
         {
-            FMODUnity.RuntimeManager.PlayOneShot(submitEvent.Path);
+            FMODUnity.RuntimeManager.PlayOneShot(submitEvent);
             ContinueStory();
         }
     }
