@@ -66,7 +66,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{0b24beb9-bedf-4a5e-8ad2-2b05ae5354d6}">
 		<property name="maximumDistance">
-			<value>100</value>
+			<value>50</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{782f20ad-94e6-43bf-931c-0470331c278a}" />
@@ -292,9 +292,6 @@
 		<property name="maximumDistance">
 			<value>100</value>
 		</property>
-		<property name="overrideRange">
-			<value>true</value>
-		</property>
 		<relationship name="automators">
 			<destination>{9b59a89a-7460-48c6-99a3-7e730090f71d}</destination>
 		</relationship>
@@ -335,7 +332,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-3</value>
+			<value>-5</value>
 		</property>
 		<property name="curveShape">
 			<value>0.986048579</value>
@@ -343,10 +340,10 @@
 	</object>
 	<object class="AutomationPoint" id="{e3348d51-3ff5-4b2e-8faa-9c6ce05f8088}">
 		<property name="position">
-			<value>100</value>
+			<value>50</value>
 		</property>
 		<property name="value">
-			<value>-19</value>
+			<value>-21.4285717</value>
 		</property>
 	</object>
 	<object class="Automator" id="{9b59a89a-7460-48c6-99a3-7e730090f71d}">
@@ -367,7 +364,7 @@
 	</object>
 	<object class="AutomationPoint" id="{ca510f06-be87-4517-8ed3-48e5504dca39}">
 		<property name="position">
-			<value>100</value>
+			<value>50</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -375,7 +372,7 @@
 	</object>
 	<object class="AutomationPoint" id="{1f742b9f-d154-4912-9bb2-f83614c5d5fb}">
 		<property name="position">
-			<value>100</value>
+			<value>50</value>
 		</property>
 		<property name="value">
 			<value>-12</value>
@@ -414,7 +411,7 @@
 	</object>
 	<object class="AutomationPoint" id="{aea73fec-dcec-4fc2-9950-9a4db4cbbd58}">
 		<property name="position">
-			<value>100</value>
+			<value>50</value>
 		</property>
 		<property name="value">
 			<value>1</value>
