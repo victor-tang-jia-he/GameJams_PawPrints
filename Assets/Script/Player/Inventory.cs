@@ -1,29 +1,27 @@
+using Com.DefaultCompany.LostSoul;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : Manager<Inventory>
 {
-    public static Inventory Instance;
-
     private readonly Dictionary<int, InteractableItemInfo> inventory = new();
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
+    [SerializeField] private GameObject inventoryUIGrid;
+    [SerializeField] private GameObject inventoryItemSlotPrefabs;
+    [SerializeField] private TextMeshProUGUI descriptionText;
 
     public void AddItemIntoInventory(InteractableItemInfo itemInfo)
     {
         if (!inventory.TryAdd(itemInfo.id, itemInfo))
         {
             Debug.LogWarning($"item :{itemInfo.name} of id : {itemInfo.id} has already been added");
+        }
+        if (inventoryUIGrid != null)
+        {
+            GameObject itemPrefab = Instantiate(inventoryItemSlotPrefabs, inventoryUIGrid.transform);
+            InventorySlot invSlot = itemPrefab.GetComponent<InventorySlot>();
+            invSlot.itemInfo = itemInfo;
+            invSlot.descriptionText = descriptionText;
         }
     }
 

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bfb1834eaed65418ba8ece1ddeb92c, type: 3}
+  m_Name: Talharpa
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
+  id: 0
+  knotName: Talharpa
+  description: "Une talharpa en bois. Une des cordes est cass\xE9e, le rendant injouable."
+  mesh: {fileID: 0}
+  backgroundSprite: {fileID: 0}
+  icon: {fileID: 0}

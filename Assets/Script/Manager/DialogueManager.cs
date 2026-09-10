@@ -1,3 +1,4 @@
+using Com.DefaultCompany.LostSoul;
 using System;
 using System.Collections;
 using TMPro;
@@ -36,10 +37,8 @@ public class StoryKnot
     }
 }
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : Manager<DialogueManager>
 {
-    static public DialogueManager Instance;
-
     // Listener for those system that need dialogue start and end info
     public static event Action OnDialogueStarted;
     public static event Action OnDialogueEnded;
@@ -52,14 +51,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Image uiBackgroudImageDialogue;
-
-    [Header("Dialogue Sound Effect")]
-    public FMODUnity.EventReference submitEvent;
-    FMOD.Studio.EventInstance submitEventInstance;
-
-    public FMODUnity.EventReference displayLineLetterEvent;
-    FMOD.Studio.EventInstance displayLineLetterEventInstance;
-
 
     #region Property
     private bool isPlaying = false;
@@ -82,23 +73,34 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = string.Empty;
         SetTransparency(uiBackgroudImageDialogue, 0);
-        DontDestroyOnLoad(gameObject);
-
-        if (Instance == null)
-        {
-            Instance = this;
-            return;
-        }
-        if (Instance != this) Destroy(gameObject);
     }
 
     private void Update()
     {
-        if ((playerInputHandler = PlayerInputHandler.Instance) == null) return; // Lazy getter
         if (!isPlaying) return;
+
         if (canContinueToNextLine && playerInputHandler.GetSubmitPressed())
         {
             ContinueStory();
+        }
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        CoreSystem.OnServiceRegistered += SetService;
+    }
+
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        CoreSystem.OnServiceRegistered -= SetService;
+    }
+    private void SetService(Type serviceType)
+    {
+        if (serviceType == typeof(PlayerInputHandler))
+        {
+            playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
         }
     }
 
@@ -123,7 +125,14 @@ public class DialogueManager : MonoBehaviour
 
         OnDialogueStarted?.Invoke();
 
-        // TODO : Add background image
+        if (collectableItemInfo.backgroundSprite != null)
+        {
+            uiBackgroudImageDialogue.sprite = collectableItemInfo.backgroundSprite;
+        }
+        else
+        {
+            Debug.LogWarning($"Background sprite is not set for {collectableItemInfo.knotName}");
+        }
         SetTransparency(uiBackgroudImageDialogue, 1);
         dialoguePanel.SetActive(true);
 
@@ -138,6 +147,7 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(false);
         SetTransparency(uiBackgroudImageDialogue, 0);
+        uiBackgroudImageDialogue.sprite = null; // Reset background sprite
         dialogueText.text = "???"; // Reset dialogue text
         currentStory.Reset();
         OnDialogueEnded?.Invoke(); // Notice player FSM & other to exit dialogue mode

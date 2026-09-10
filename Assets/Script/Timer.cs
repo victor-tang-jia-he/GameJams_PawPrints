@@ -10,7 +10,7 @@ public class Timer
         this.maxTime = maxTime;
     }
 
-    // return if timer is complete
+    // return true if timer is complete
     public bool AddTime(float deltaTime)
     {
         currentTime += deltaTime;

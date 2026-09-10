@@ -1,7 +1,10 @@
+using Com.DefaultCompany.LostSoul;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 /// <summary>
 /// Following dirty was made by me bcs lazy to make a proper UI manager with a proper state machine and stuff, but this is just a simple project so I made it dirty and fast. :)
@@ -10,17 +13,24 @@ using UnityEngine.UI;
 public enum MenuType
 {
     None = 0,
-    Main,
-    InGame,
-    Pause,
-    Settings,
-    Dialogue,
-    Inventory
+    Main = 1,
+    InGame = 2,
+    Pause = 3,
+    Settings = 4,
+    Dialogue = 5,
+    Inventory = 6
 }
 
-public class UIManager : MonoBehaviour
+public class UIManager : Manager<UIManager>
 {
-    static public UIManager Instance;
+    public Action OnSceneChange;
+
+    [Header("Intro video")]
+    [SerializeField] private VideoPlayer videoPlayer;
+
+    [Header("Scene Id")]
+    [SerializeField] private int mainMenuSceneId = 1;
+    [SerializeField] private int inGameSceneId = 2;
 
     [Header("Fade Panel")]
     [SerializeField] private float defaultFadeDuration = 1f;
@@ -30,39 +40,35 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject InGameUi;
     [SerializeField] private GameObject pauseMenu;
-
     [SerializeField] private GameObject settingsMenu;
-
     [SerializeField] private GameObject dialogueUI;
-
     [SerializeField] private GameObject inventoryUI;
+
+    [Header("UI sound")]
+    [SerializeField] private FMODUnity.EventReference UIClickSound;
+
 
     public MenuType DefaultMenu;
 
     private MenuType currentMenuType = MenuType.None;
 
+    private MenuType lastMenuType = MenuType.None;
+
     public bool IsFadingProcess { get; private set; } = false;
 
     private PlayerInputHandler playerInputHandler;
+    private Settings settings;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-
         if (fadePanel == null
             || MainMenu == null
             || InGameUi == null
             || pauseMenu == null
             || settingsMenu == null
             || dialogueUI == null
-            || inventoryUI == null)
+            || inventoryUI == null
+            || UIClickSound.IsNull)
         {
             Debug.LogError("UIManager: One or more UI elements are not assigned in the inspector.");
         }
@@ -74,72 +80,133 @@ public class UIManager : MonoBehaviour
         settingsMenu.SetActive(false);
         dialogueUI.SetActive(false);
         inventoryUI.SetActive(false);
+        fadePanel.gameObject.SetActive(false);
+
+        videoPlayer.loopPointReached += OnVideoFinished;
     }
 
-    private void Start()
+    private void OnVideoFinished(VideoPlayer player)
     {
+        videoPlayer.loopPointReached -= OnVideoFinished;
+        fadePanel.gameObject.SetActive(true);
+        videoPlayer.gameObject.SetActive(false);
         FadeOut();
-        ShowPanel(MenuType.Main);
+        ShowPanel(DefaultMenu);
     }
 
     private void Update()
     {
-        if (playerInputHandler == null && PlayerInputHandler.Instance != null)
+        if (playerInputHandler.GetEscapePressed())
         {
-            playerInputHandler = PlayerInputHandler.Instance;
+            OnBackButton();
         }
-        if (playerInputHandler != null && playerInputHandler.GetEscapePressed())
+        if (playerInputHandler.GetInventoryPressed())
         {
-            if (currentMenuType == MenuType.Pause)
+            if (currentMenuType == MenuType.Inventory)
             {
-                ShowPanel(MenuType.InGame);
+                OnBackButton();
+                return;
             }
-            else if (currentMenuType == MenuType.InGame)
-            {
-                ShowPanel(MenuType.Pause);
-            }
-            else if (currentMenuType == MenuType.Settings)
-            {
-                ShowPanel(MenuType.Main);
-            }
+            OnInventoryButton();
+        }
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        CoreSystem.OnServiceRegistered += SetService;
+    }
+
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        CoreSystem.OnServiceRegistered -= SetService;
+    }
+    private void SetService(Type serviceType)
+    {
+        if (serviceType == typeof(PlayerInputHandler))
+        {
+            playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
+        }
+        if (serviceType == typeof(Settings))
+        {
+            settings = CoreSystem.Instance.GetService<Settings>();
         }
     }
 
     #region Button Events
     public void OnPlayButton()
     {
-        StartCoroutine(PlayButtonCoroutine());
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame));
     }
-    // button function with Coroutine to handle fade in and fade out
-    private IEnumerator PlayButtonCoroutine()
+    public void OnQuitPauseButton()
     {
-        yield return FadeIn();
-        ShowPanel(MenuType.InGame);
-        SceneManager.LoadScene(1);
-        yield return new WaitForSeconds(1f);
-        yield return FadeOut();
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        StartCoroutine(StartChangingScene(mainMenuSceneId, MenuType.Main));
     }
 
     public void OnSettingButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         ShowPanel(MenuType.Settings);
-    }
-
-    public void OnBackSettingToMainMenuButton()
-    {
-        ShowPanel(MenuType.Main);
     }
 
     public void OnPauseButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         ShowPanel(MenuType.Pause);
     }
-
     public void OnQuit()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         Application.Quit();
     }
 
+    public void OnInventoryButton()
+    {
+        if (currentMenuType == MenuType.InGame)
+        {
+            ShowPanel(MenuType.Inventory);
+            return;
+        }
+    }
+
+    public void UniversalShowPanel(int menuType)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        ShowPanel((MenuType)menuType);
+    }
+
+    public void OnBackButton()
+    {
+        if (lastMenuType == MenuType.None) return;
+
+        if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
+            !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause) &&
+            !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Settings) &&
+            !(currentMenuType == MenuType.Pause && lastMenuType == MenuType.Settings) &&
+            !(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Inventory))
+
+        {
+            ShowPanel(lastMenuType);
+            return;
+        }
+        if (currentMenuType == MenuType.InGame)
+        {
+            ShowPanel(MenuType.Pause);
+        }
+        if (currentMenuType == MenuType.Pause)
+        {
+            ShowPanel(MenuType.InGame);
+        }
+    }
+
+    public void OnSaveButton()
+    {
+        settings.Save();
+    }
 
     #endregion
     public void ShowPanel(MenuType menuType)
@@ -164,9 +231,14 @@ public class UIManager : MonoBehaviour
             case MenuType.Dialogue:
                 dialogueUI.SetActive(true);
                 break;
+            case MenuType.Inventory:
+                inventoryUI.SetActive(true);
+                break;
             default:
+                Debug.LogWarning("UIManager: Attempted to show an unhandled menu type.");
                 break;
         }
+        lastMenuType = currentMenuType;
         currentMenuType = menuType;
     }
 
@@ -174,6 +246,8 @@ public class UIManager : MonoBehaviour
     {
         switch (currentMenuType)
         {
+            case MenuType.None:
+                break;
             case MenuType.Main:
                 MainMenu.SetActive(false);
                 break;
@@ -189,7 +263,11 @@ public class UIManager : MonoBehaviour
             case MenuType.Dialogue:
                 dialogueUI.SetActive(false);
                 break;
+            case MenuType.Inventory:
+                inventoryUI.SetActive(false);
+                break;
             default:
+                Debug.LogWarning("UIManager: Attempted to hide an unhandled menu type.");
                 break;
         }
     }
@@ -226,16 +304,18 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-    public void ChangeScene(string nextSceneName)
+    public void ChangeScene(int nextSceneId, MenuType menuType)
     {
-        StartCoroutine(StartChangingScene(nextSceneName));
+        StartCoroutine(StartChangingScene(nextSceneId, menuType));
     }
 
-    private IEnumerator StartChangingScene(string nextSceneName)
+    private IEnumerator StartChangingScene(int nextSceneId, MenuType menuType)
     {
-        yield return Instance.FadeIn(1f);
-        SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+        OnSceneChange?.Invoke();
+        yield return FadeIn(1f);
+        SceneManager.LoadScene(nextSceneId, LoadSceneMode.Single);
+        ShowPanel(menuType);
         yield return new WaitForSeconds(1f);
-        yield return Instance.FadeOut(1f);
+        yield return FadeOut(1f);
     }
 }

@@ -1,7 +1,9 @@
+using Com.DefaultCompany.LostSoul;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerInputHandler : MonoBehaviour
+public class PlayerInputHandler : Manager<PlayerInputHandler>
 {
     #region Script Parameters
     #endregion
@@ -10,10 +12,14 @@ public class PlayerInputHandler : MonoBehaviour
     private bool interactPressed = false;
     private bool submitPressed = false;
     private bool escapePressed = false;
+    private bool inventoryPressed = false;
+
+    public UnityEvent OnPlayerCallInput = new();
     #endregion
 
     #region Properties
-    static public PlayerInputHandler Instance;
+    public Vector2 MoveDirection { get; private set; } = Vector2.zero;
+
     public bool InteractPressed
     {
         get
@@ -27,20 +33,24 @@ public class PlayerInputHandler : MonoBehaviour
     #endregion
 
     #region Unity Methods
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
     #endregion
 
     #region Methods
-
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            MoveDirection = context.ReadValue<Vector2>();
+        }
+        else if (context.canceled)
+        {
+            MoveDirection = context.ReadValue<Vector2>();
+        }
+    }
+    public void OnCall(InputAction.CallbackContext callbackContext)
+    {
+        OnPlayerCallInput.Invoke();
+    }
     public void EscapeKeyPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -85,6 +95,18 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void InventoryPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            inventoryPressed = true;
+        }
+        else if (context.canceled)
+        {
+            inventoryPressed = false;
+        }
+    }
+
     // for any of the below 'Get' methods, if we're getting it then we're also using it,
     // which means we should set it to false so that it can't be used again until actually
     // pressed again.
@@ -112,6 +134,13 @@ public class PlayerInputHandler : MonoBehaviour
     {
         bool result = escapePressed;
         escapePressed = false;
+        return result;
+    }
+
+    public bool GetInventoryPressed()
+    {
+        bool result = inventoryPressed;
+        inventoryPressed = false;
         return result;
     }
     #endregion

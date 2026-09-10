@@ -1,30 +1,19 @@
+using Com.DefaultCompany.LostSoul;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GlobalCallInvoker : MonoBehaviour
+public class GlobalCallInvoker : Manager<GlobalCallInvoker>
 {
-    public static GlobalCallInvoker Singleton;
-
     
-    private GameObject basicCallObject;
-    void Awake()
-    {
-        if (Singleton == null)
-        {
-            Singleton = this;
-        }
-        basicCallObject = new GameObject();
-        basicCallObject.AddComponent<SpatialCall>();
-        basicCallObject.SetActive(false);
-    }
+    
     public SpatialCall GlobalCall(Vector3 position,float callRadius)
     {
-        GameObject newObject = Instantiate(basicCallObject, position,Quaternion.identity);
-        newObject.SetActive(true);
+        GameObject newObject = new GameObject();
         SpatialCall spatialCall = newObject.AddComponent<SpatialCall>();
+        newObject.transform.position = position;
         spatialCall.CallRadius = callRadius;
-        spatialCall.MakeCall();
+        spatialCall.MakeCall(); 
 
         return spatialCall;
     }
