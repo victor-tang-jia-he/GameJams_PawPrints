@@ -44,6 +44,9 @@ public class UIManager : Manager<UIManager>
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private GameObject inventoryUI;
 
+    [Header("UI sound")]
+    [SerializeField] private FMODUnity.EventReference UIClickSound;
+
 
     public MenuType DefaultMenu;
 
@@ -64,7 +67,8 @@ public class UIManager : Manager<UIManager>
             || pauseMenu == null
             || settingsMenu == null
             || dialogueUI == null
-            || inventoryUI == null)
+            || inventoryUI == null
+            || UIClickSound.IsNull)
         {
             Debug.LogError("UIManager: One or more UI elements are not assigned in the inspector.");
         }
@@ -98,6 +102,11 @@ public class UIManager : Manager<UIManager>
         }
         if (playerInputHandler.GetInventoryPressed())
         {
+            if (currentMenuType == MenuType.Inventory)
+            {
+                OnBackButton();
+                return;
+            }
             OnInventoryButton();
         }
     }
@@ -129,24 +138,29 @@ public class UIManager : Manager<UIManager>
     #region Button Events
     public void OnPlayButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame));
     }
     public void OnQuitPauseButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         StartCoroutine(StartChangingScene(mainMenuSceneId, MenuType.Main));
     }
 
     public void OnSettingButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         ShowPanel(MenuType.Settings);
     }
 
     public void OnPauseButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         ShowPanel(MenuType.Pause);
     }
     public void OnQuit()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         Application.Quit();
     }
 
@@ -161,6 +175,7 @@ public class UIManager : Manager<UIManager>
 
     public void UniversalShowPanel(int menuType)
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         ShowPanel((MenuType)menuType);
     }
 
@@ -170,6 +185,8 @@ public class UIManager : Manager<UIManager>
 
         if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
             !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause) &&
+            !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Settings) &&
+            !(currentMenuType == MenuType.Pause && lastMenuType == MenuType.Settings) &&
             !(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Inventory))
 
         {
@@ -179,6 +196,10 @@ public class UIManager : Manager<UIManager>
         if (currentMenuType == MenuType.InGame)
         {
             ShowPanel(MenuType.Pause);
+        }
+        if (currentMenuType == MenuType.Pause)
+        {
+            ShowPanel(MenuType.InGame);
         }
     }
 
@@ -225,6 +246,8 @@ public class UIManager : Manager<UIManager>
     {
         switch (currentMenuType)
         {
+            case MenuType.None:
+                break;
             case MenuType.Main:
                 MainMenu.SetActive(false);
                 break;
