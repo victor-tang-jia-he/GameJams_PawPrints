@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class GlobalCallInvoker : Manager<GlobalCallInvoker>
 {
-    
-    
+    [SerializeField]
+    private GameObject defaultSpatialCall;
     public SpatialCall GlobalCall(Vector3 position,float callRadius)
     {
-        GameObject newObject = new GameObject();
-        SpatialCall spatialCall = newObject.AddComponent<SpatialCall>();
-        newObject.transform.position = position;
+        GameObject newObject = Instantiate(defaultSpatialCall, position, Quaternion.identity);
+        SpatialCall spatialCall = newObject.GetComponent<SpatialCall>();
         spatialCall.CallRadius = callRadius;
         spatialCall.MakeCall(); 
 
