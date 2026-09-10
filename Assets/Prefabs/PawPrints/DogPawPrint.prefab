@@ -50,7 +50,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   spriteRenderer: {fileID: 1939109854579868199}
-  visibleTime: 0
   glowingTime: 1
   glowedTime: 0.5
   unglowingTime: 1
@@ -80,7 +79,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42faeafa3d2798042a6545f99dc1de6c, type: 2}
+  - {fileID: 2100000, guid: 95fc3965b72243a4abbe058f8f7819e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +103,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 348225393, guid: aff1da7737febb94d96db314ae02578f, type: 3}
-  m_Color: {r: 1, g: 0.8705883, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
