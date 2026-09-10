@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{ca46f0ae-65d1-44b7-810d-10651418e4a3}">
+		<property name="assetPath">
+			<value>sfx_whistle_medium_spring.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.8</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{88a519c1-0e90-435a-a906-950600317a7b}</destination>
+		</relationship>
+	</object>
+</objects>

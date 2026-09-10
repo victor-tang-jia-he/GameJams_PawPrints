@@ -657,8 +657,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 550195048695418517, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8797220958348279391}
   m_SourcePrefab: {fileID: 100100000, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+--- !u!1 &8797220958348279390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 550195048695418517, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+  m_PrefabInstance: {fileID: 8797220958348279389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8797220958348279391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8797220958348279390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b28133c59fecd54ca1f390ba3a71898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmbMusic
+  ambMusicReference:
+    Guid:
+      Data1: 507322881
+      Data2: 1087166917
+      Data3: -1131409221
+      Data4: 403975208
+    Path: event:/AMBIENCE/amb_spring
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

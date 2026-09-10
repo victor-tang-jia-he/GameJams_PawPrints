@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8f1a615d-87ce-45a1-8567-055a6cf1d26c}">
+		<property name="assetPath">
+			<value>sfx_whistle_short_winter.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.8</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{88a519c1-0e90-435a-a906-950600317a7b}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7068825951916800380, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      propertyPath: stepInterval
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.08
@@ -170,6 +174,26 @@ PrefabInstance:
     - target: {fileID: 3048275055948529387, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      propertyPath: playerCallSound.Path
+      value: event:/SFX/sfx_whistle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      propertyPath: playerCallSound.Guid.Data1
+      value: -120515135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      propertyPath: playerCallSound.Guid.Data2
+      value: 1238130758
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      propertyPath: playerCallSound.Guid.Data3
+      value: 1521393052
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      propertyPath: playerCallSound.Guid.Data4
+      value: -1591024459
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -670,29 +694,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
       propertyPath: ambMusicReference.Path
-      value: event:/MUSIC/mus_winter
+      value: event:/MUSIC/mus_spring
       objectReference: {fileID: 0}
     - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
       propertyPath: ambMusicReference.Guid.Data1
-      value: -1192090076
+      value: 190600390
       objectReference: {fileID: 0}
     - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
       propertyPath: ambMusicReference.Guid.Data2
-      value: 1131842276
+      value: 1144236248
       objectReference: {fileID: 0}
     - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
       propertyPath: ambMusicReference.Guid.Data3
-      value: -692936268
+      value: 1028327093
       objectReference: {fileID: 0}
     - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
       propertyPath: ambMusicReference.Guid.Data4
-      value: 572628281
+      value: -514201722
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 550195048695418517, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1085379283}
   m_SourcePrefab: {fileID: 100100000, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+--- !u!1 &1085379282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 550195048695418517, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+  m_PrefabInstance: {fileID: 1085379281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1085379283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085379282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b28133c59fecd54ca1f390ba3a71898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmbMusic
+  ambMusicReference:
+    Guid:
+      Data1: 507322881
+      Data2: 1087166917
+      Data3: -1131409221
+      Data4: 403975208
+    Path: event:/AMBIENCE/amb_spring
 --- !u!1 &1425021521
 GameObject:
   m_ObjectHideFlags: 0
