@@ -193,10 +193,11 @@ GameObject:
   - component: {fileID: -3773828836428843854}
   - component: {fileID: -7068825951916800380}
   - component: {fileID: 6449393834779890338}
-  - component: {fileID: 6341117111075790838}
+  - component: {fileID: 5442884440197366579}
+  - component: {fileID: 8296252731444804447}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,9 +271,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b42b160ba9a3684eb4c1f1f50f9fa3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCall
-  CallRadius: 10
+  CallRadius: 7
   callCooldown: 1
---- !u!114 &6341117111075790838
+  playerCallSound:
+    Guid:
+      Data1: -120515135
+      Data2: 1238130758
+      Data3: 1521393052
+      Data4: -1591024459
+    Path: event:/SFX/sfx_whistle
+--- !u!114 &5442884440197366579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -284,3 +292,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a0cc9203d478a48a68f285a40ca459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Com.DefaultCompany.LostSoul.TriggerInteraction
+--- !u!114 &8296252731444804447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048275055948529387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}

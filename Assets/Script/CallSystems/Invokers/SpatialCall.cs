@@ -5,7 +5,7 @@ public class SpatialCall : MonoBehaviour
 {
     public float CallRadius;
 
-    public virtual void MakeCall()
+    public virtual void MakeCall(GameObject owner)
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, CallRadius);
 
@@ -15,7 +15,8 @@ public class SpatialCall : MonoBehaviour
             if (callListener != null)
             {
                 CallData callData;
-                callData.caller = gameObject;
+                callData.callOwner = owner;
+                callData.spatialCall = this;
                 callListener.ListenToCall(callData);
             }
         }

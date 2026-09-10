@@ -62,7 +62,7 @@ public class PlayerCall : MonoBehaviour
         isOnCooldown = true;
         cooldownTimer = new Timer(callCooldown);
         FMODUnity.RuntimeManager.PlayOneShot(playerCallSound);
-        callInvoker.GlobalCall(transform.position, CallRadius, 1.0f);
+        callInvoker.GlobalCall(gameObject,transform.position, CallRadius, 1.0f);
         
     }
     private void OnDestroy()
