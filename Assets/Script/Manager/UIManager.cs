@@ -28,6 +28,7 @@ public class UIManager : Manager<UIManager>
 
     [Header("Intro video")]
     [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private VideoClip introVideoClip;
     [SerializeField] private bool skipIntroVideo;
 
     [Header("Scene Id")]
@@ -87,6 +88,7 @@ public class UIManager : Manager<UIManager>
 
     private void Start()
     {
+        
         if (skipIntroVideo)
         {
             fadePanel.gameObject.SetActive(true);
@@ -95,8 +97,7 @@ public class UIManager : Manager<UIManager>
             ShowPanel(DefaultMenu);
             return;
         }
-        fadePanel.gameObject.SetActive(false);
-        videoPlayer.loopPointReached += OnVideoFinished;
+        PlayVideo(introVideoClip);
     }
     private void OnVideoFinished(VideoPlayer player)
     {
@@ -107,6 +108,12 @@ public class UIManager : Manager<UIManager>
         ShowPanel(DefaultMenu);
     }
 
+    public void PlayVideo(VideoClip videoClip)
+    {
+        fadePanel.gameObject.SetActive(false);
+        videoPlayer.clip = videoClip;
+        videoPlayer.loopPointReached += OnVideoFinished;
+    }
     private void Update()
     {
         if (playerInputHandler.GetEscapePressed())
