@@ -3,7 +3,7 @@
     "name": "PlayerInputActions",
     "maps": [
         {
-            "name": "Player",
+            "name": "Gameplay",
             "id": "c61357fc-e9b7-4f0f-a6b0-27016a048a4c",
             "actions": [
                 {
@@ -19,15 +19,6 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "672f3144-f1e6-4e7a-9e62-2ae0da34e989",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Submit",
-                    "type": "Button",
-                    "id": "b9009c16-8869-40e8-aeed-dbe9de8c83bb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -130,17 +121,6 @@
                 },
                 {
                     "name": "",
-                    "id": "87093a2c-99b1-4308-a48e-85863147d4b8",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "568d4046-ad5f-4f7d-a0c0-5a3e79f05c26",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -169,6 +149,82 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "60d38748-9109-4dca-a35a-396eda653c00",
+            "actions": [
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "27b60786-806c-455f-8a66-a73a9413e1fa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "fecdb3da-c654-400e-ad14-e561ccb29393",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c6872834-ec26-4e1f-b67d-7ab101ecd823",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f710b04c-2449-4a77-bac0-5e813c1690d5",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Pause",
+            "id": "3bea6c48-391a-4dcb-9ca4-d7164f9d0221",
+            "actions": [
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "0c009da4-2eab-41c6-9ed5-17a14d67b60c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f6c4c63d-5f17-4160-82b2-8f5bf59c00bb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

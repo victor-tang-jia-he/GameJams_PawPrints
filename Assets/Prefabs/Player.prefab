@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: -3773828836428843854}
   - component: {fileID: -7068825951916800380}
   - component: {fileID: 6449393834779890338}
+  - component: {fileID: 6341117111075790838}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -255,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   characterController: {fileID: -3773828836428843854}
   MovementSpeed: 10
-  TurnSpeed: 180
+  TurnSpeed: 720
   playerSkin: {fileID: 2451270614185506490}
 --- !u!114 &6449393834779890338
 MonoBehaviour:
@@ -271,3 +272,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCall
   CallRadius: 10
   callCooldown: 1
+--- !u!114 &6341117111075790838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048275055948529387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a0cc9203d478a48a68f285a40ca459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Com.DefaultCompany.LostSoul.TriggerInteraction

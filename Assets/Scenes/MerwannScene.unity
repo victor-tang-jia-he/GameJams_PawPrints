@@ -167,25 +167,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7689092079733259240, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
-      propertyPath: itemInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: 1e64d4edc12074348a1e7e78e2151ef8, type: 2}
     - target: {fileID: 8936044386346044042, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
       propertyPath: m_Name
       value: Collectable Object
       objectReference: {fileID: 0}
-    - target: {fileID: 8936044386346044042, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
-      propertyPath: m_TagString
-      value: Interactable
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8936044386346044042, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1439467536}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
 --- !u!1001 &553278504
 PrefabInstance:
@@ -457,29 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a0cc9203d478a48a68f285a40ca459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Com.DefaultCompany.LostSoul.TriggerInteraction
---- !u!1 &1439467530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8936044386346044042, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
-  m_PrefabInstance: {fileID: 448868357}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1439467536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439467530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78601300ba7c38e42bb4deac2f937f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpatialCallListenerMesh
-  OnListenToCallEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  glowingTime: 1
-  glowedTime: 2
-  unglowingTime: 1
 --- !u!1 &1678439904 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2532621343245726522, guid: 32a8f2806a5a3bd428edfe8bcbd87309, type: 3}

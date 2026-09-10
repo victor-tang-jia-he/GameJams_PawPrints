@@ -2,6 +2,7 @@ using Com.DefaultCompany.LostSoul;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -57,6 +58,7 @@ public class UIManager : Manager<UIManager>
     public bool IsFadingProcess { get; private set; } = false;
 
     private PlayerInputHandler playerInputHandler;
+    private PlayerInput playerInput;
     private Settings settings;
 
     private void Awake()
@@ -128,6 +130,7 @@ public class UIManager : Manager<UIManager>
         if (serviceType == typeof(PlayerInputHandler))
         {
             playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
+            playerInput = playerInputHandler.GetComponent<PlayerInput>();
         }
         if (serviceType == typeof(Settings))
         {
@@ -138,34 +141,36 @@ public class UIManager : Manager<UIManager>
     #region Button Events
     public void OnPlayButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame));
     }
     public void OnQuitPauseButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         StartCoroutine(StartChangingScene(mainMenuSceneId, MenuType.Main));
+        CoreSystem.Instance.GetService<Inventory>().ResetInventory();
     }
 
     public void OnSettingButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         ShowPanel(MenuType.Settings);
     }
 
     public void OnPauseButton()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         ShowPanel(MenuType.Pause);
     }
     public void OnQuit()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         Application.Quit();
     }
 
     public void OnInventoryButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         if (currentMenuType == MenuType.InGame)
         {
             ShowPanel(MenuType.Inventory);
@@ -175,15 +180,17 @@ public class UIManager : Manager<UIManager>
 
     public void UniversalShowPanel(int menuType)
     {
-        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         ShowPanel((MenuType)menuType);
     }
 
     public void OnBackButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         if (lastMenuType == MenuType.None) return;
 
         if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
+            !(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Dialogue) &&
             !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause) &&
             !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Settings) &&
             !(currentMenuType == MenuType.Pause && lastMenuType == MenuType.Settings) &&
@@ -205,6 +212,7 @@ public class UIManager : Manager<UIManager>
 
     public void OnSaveButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
         settings.Save();
     }
 
@@ -217,21 +225,27 @@ public class UIManager : Manager<UIManager>
         switch (menuType)
         {
             case MenuType.Main:
+                playerInput.SwitchCurrentActionMap("UI");
                 MainMenu.SetActive(true);
                 break;
             case MenuType.InGame:
+                playerInput.SwitchCurrentActionMap("Gameplay");
                 InGameUi.SetActive(true);
                 break;
             case MenuType.Pause:
+                playerInput.SwitchCurrentActionMap("Pause");
                 pauseMenu.SetActive(true);
                 break;
             case MenuType.Settings:
+                playerInput.SwitchCurrentActionMap("UI");
                 settingsMenu.SetActive(true);
                 break;
             case MenuType.Dialogue:
+                playerInput.SwitchCurrentActionMap("UI");
                 dialogueUI.SetActive(true);
                 break;
             case MenuType.Inventory:
+                playerInput.SwitchCurrentActionMap("UI");
                 inventoryUI.SetActive(true);
                 break;
             default:
