@@ -7,19 +7,19 @@ public class GlobalCallInvoker : Manager<GlobalCallInvoker>
 {
     [SerializeField]
     private GameObject defaultSpatialCall;
-    public SpatialCall GlobalCall(Vector3 position,float callRadius)
+    public SpatialCall GlobalCall(GameObject callOwner,Vector3 position,float callRadius)
     {
         GameObject newObject = Instantiate(defaultSpatialCall, position, Quaternion.identity);
         SpatialCall spatialCall = newObject.GetComponent<SpatialCall>();
         spatialCall.CallRadius = callRadius;
-        spatialCall.MakeCall(); 
+        spatialCall.MakeCall(callOwner); 
 
         return spatialCall;
     }
 
-    public SpatialCall GlobalCall(Vector3 position, float callRadius, float lifeTime)
+    public SpatialCall GlobalCall(GameObject callOwner, Vector3 position, float callRadius, float lifeTime)
     {
-        SpatialCall spatialCall = GlobalCall(position,callRadius);
+        SpatialCall spatialCall = GlobalCall(callOwner,position,callRadius);
         Destroy(spatialCall.gameObject, lifeTime);
         return spatialCall;
     }

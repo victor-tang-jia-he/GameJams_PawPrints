@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private GameObject playerSkin;
 
+    public bool IsMoving { get; private set; } = false;
+
     private void Start()
     {
         inputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
@@ -28,6 +30,7 @@ public class Movement : MonoBehaviour
         Vector3 movement = new Vector3(inputHandler.MoveDirection.x, 0, inputHandler.MoveDirection.y).normalized;
         if (movement != Vector3.zero)
         {
+            IsMoving = true;
             Vector3 desiredForward = Vector3.RotateTowards(playerSkin.transform.forward, movement, Mathf.Deg2Rad * TurnSpeed * Time.deltaTime, 0.0f);
             playerSkin.transform.rotation = Quaternion.LookRotation(desiredForward);
 
@@ -41,6 +44,7 @@ public class Movement : MonoBehaviour
         else
         {
             footstepTimer = 0f;
+            IsMoving = false;
         }
     }
     private void FixedUpdate()
