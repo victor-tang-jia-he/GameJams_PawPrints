@@ -33,10 +33,12 @@ public class TriggerInteraction : MonoBehaviour
     }
     private void Update()
     {
-        if (playerInputHandler.GetInteractPressed())
+        if (target)
         {
-            if (target)
+            if (playerInputHandler.GetInteractPressed())
+            {
                 target.GetComponent<IInteractable>().Interact();
+            }
         }
     }
 

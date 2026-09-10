@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class SpatialCallListenerMesh : SpatialCallListener
 {
-    
+
+    public GameObject interactionPrompt;
     private MeshRenderer meshRenderer;
 
     private StateMachine glowStateMachine;
@@ -18,7 +19,6 @@ public class SpatialCallListenerMesh : SpatialCallListener
 
     private void Awake()
     {
-
         meshRenderer = GetComponent<MeshRenderer>();
         collectableObjectComponent = GetComponent<CollectableObject>();
 
@@ -37,6 +37,13 @@ public class SpatialCallListenerMesh : SpatialCallListener
 
         unglowingState.UnglowingEvent.AddListener(OnUnglowing);
         unglowingState.OnUnglowedEvent.AddListener(OnUnglow);
+
+        if (interactionPrompt == null)
+        {
+            Debug.LogWarning($"CollectableObject: Required Object missing", gameObject);
+            return;
+        }
+        interactionPrompt.SetActive(false);
     }
 
     private void Update()
@@ -53,6 +60,7 @@ public class SpatialCallListenerMesh : SpatialCallListener
 
     private void OnGlowing(float ratio)
     {
+        interactionPrompt.SetActive(true);
         meshRenderer.enabled = true;
         Color currentMaterialColor = material.color;
         currentMaterialColor.a = ratio;
@@ -74,6 +82,7 @@ public class SpatialCallListenerMesh : SpatialCallListener
 
     private void OnUnglow()
     {
+        interactionPrompt.SetActive(false);
         meshRenderer.enabled = false;
         collectableObjectComponent.SetInteractEnabled(false);
     }

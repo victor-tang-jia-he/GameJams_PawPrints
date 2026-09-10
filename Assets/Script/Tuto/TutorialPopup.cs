@@ -1,3 +1,4 @@
+using Com.DefaultCompany.LostSoul;
 using UnityEngine;
 
 public class TutorialPopup : MonoBehaviour
@@ -15,6 +16,15 @@ public class TutorialPopup : MonoBehaviour
         {
             popup.SetActive(true);
             hasBeenShown = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (!   hasBeenShown) return;
+        if (popup.activeSelf && CoreSystem.Instance.GetService<PlayerInputHandler>().GetSubmitPressed())
+        {
+            Hide();
         }
     }
 

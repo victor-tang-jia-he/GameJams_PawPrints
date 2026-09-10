@@ -643,10 +643,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7689092079733259240, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
-      propertyPath: itemInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: 96f4449d976398a4e846d262e4888a1a, type: 2}
     - target: {fileID: 8936044386346044042, guid: e423977b896dc744f880c62aa5f7ebfb, type: 3}
       propertyPath: m_Name
       value: Collectable Object
@@ -1325,6 +1321,10 @@ PrefabInstance:
     - target: {fileID: 8098313793816496136, guid: c6e2386b35e9ec047989675f628785a6, type: 3}
       propertyPath: m_Name
       value: PopupTuto
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098313793816496136, guid: c6e2386b35e9ec047989675f628785a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

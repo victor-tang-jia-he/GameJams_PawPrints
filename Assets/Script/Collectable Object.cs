@@ -54,5 +54,4 @@ public class CollectableObject : MonoBehaviour, IInteractable
         CoreSystem.Instance?.GetService<Inventory>().AddItemIntoInventory(itemInfo);
         Destroy(gameObject);
     }
-
 }

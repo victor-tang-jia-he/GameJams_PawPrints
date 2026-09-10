@@ -88,7 +88,6 @@ public class UIManager : Manager<UIManager>
 
     private void Start()
     {
-        
         if (skipIntroVideo)
         {
             fadePanel.gameObject.SetActive(true);
