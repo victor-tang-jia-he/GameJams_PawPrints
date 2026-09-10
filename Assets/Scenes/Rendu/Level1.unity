@@ -189,10 +189,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7068825951916800380, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: TurnSpeed
-      value: 720
-      objectReference: {fileID: 0}
     - target: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.08
@@ -240,33 +236,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3048275055948529387, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 340097345}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
 --- !u!4 &340097343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
   m_PrefabInstance: {fileID: 340097342}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &340097344 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3048275055948529387, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-  m_PrefabInstance: {fileID: 340097342}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &340097345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340097344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a0cc9203d478a48a68f285a40ca459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Com.DefaultCompany.LostSoul.TriggerInteraction
 --- !u!1 &398644566
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,37 +571,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6585770633211062177, guid: 32a8f2806a5a3bd428edfe8bcbd87309, type: 3}
-      propertyPath: AvoidObstacles.Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7375757116541985277, guid: 32a8f2806a5a3bd428edfe8bcbd87309, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2532621343245726522, guid: 32a8f2806a5a3bd428edfe8bcbd87309, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 892005449}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a8f2806a5a3bd428edfe8bcbd87309, type: 3}
---- !u!1 &892005448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2532621343245726522, guid: 32a8f2806a5a3bd428edfe8bcbd87309, type: 3}
-  m_PrefabInstance: {fileID: 892005447}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &892005449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892005448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
-  LookAtOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &914359231
 PrefabInstance:
   m_ObjectHideFlags: 0
