@@ -2,6 +2,7 @@ using Com.DefaultCompany.LostSoul;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -57,6 +58,7 @@ public class UIManager : Manager<UIManager>
     public bool IsFadingProcess { get; private set; } = false;
 
     private PlayerInputHandler playerInputHandler;
+    private PlayerInput playerInput;
     private Settings settings;
 
     private void Awake()
@@ -128,6 +130,7 @@ public class UIManager : Manager<UIManager>
         if (serviceType == typeof(PlayerInputHandler))
         {
             playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
+            playerInput = playerInputHandler.GetComponent<PlayerInput>();
         }
         if (serviceType == typeof(Settings))
         {
@@ -220,21 +223,27 @@ public class UIManager : Manager<UIManager>
         switch (menuType)
         {
             case MenuType.Main:
+                playerInput.SwitchCurrentActionMap("UI");
                 MainMenu.SetActive(true);
                 break;
             case MenuType.InGame:
+                playerInput.SwitchCurrentActionMap("Gameplay");
                 InGameUi.SetActive(true);
                 break;
             case MenuType.Pause:
+                playerInput.SwitchCurrentActionMap("Pause");
                 pauseMenu.SetActive(true);
                 break;
             case MenuType.Settings:
+                playerInput.SwitchCurrentActionMap("UI");
                 settingsMenu.SetActive(true);
                 break;
             case MenuType.Dialogue:
+                playerInput.SwitchCurrentActionMap("UI");
                 dialogueUI.SetActive(true);
                 break;
             case MenuType.Inventory:
+                playerInput.SwitchCurrentActionMap("UI");
                 inventoryUI.SetActive(true);
                 break;
             default:
