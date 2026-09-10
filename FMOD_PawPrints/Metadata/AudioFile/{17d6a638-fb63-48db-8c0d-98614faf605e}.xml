@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{33006d61-5807-4caf-bcc6-4b1b94b55bb2}">
+	<object class="AudioFile" id="{17d6a638-fb63-48db-8c0d-98614faf605e}">
 		<property name="assetPath">
-			<value>sfx_dog_whine-001.wav</value>
+			<value>sfx_player_footsteps_leaves-001.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>6.0625</value>
+			<value>0.5</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{88a519c1-0e90-435a-a906-950600317a7b}</destination>
