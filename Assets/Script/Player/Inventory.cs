@@ -29,4 +29,13 @@ public class Inventory : Manager<Inventory>
     {
         return inventory.ContainsKey(itemInfo.id);
     }
+
+    public void ResetInventory()
+    {
+        inventory.Clear();
+        foreach (Transform child in inventoryUIGrid.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }
