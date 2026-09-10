@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{2e713f83-7385-4e88-b08f-93c68b561218}">
 		<property name="name">
-			<value>amb_river</value>
+			<value>amb_river_transmission</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
