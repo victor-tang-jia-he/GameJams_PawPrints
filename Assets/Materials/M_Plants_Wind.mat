@@ -90,7 +90,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaClippingTreshhold: 0.21
     - _AlphaToMask: 0
-    - _BendStrenght: -0.2
+    - _BendStrenght: -0.1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1

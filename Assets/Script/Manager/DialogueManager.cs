@@ -88,7 +88,7 @@ public class DialogueManager : Manager<DialogueManager>
 
         if (canContinueToNextLine && playerInputHandler.GetSubmitPressed())
         {
-            FMODUnity.RuntimeManager.PlayOneShot(submitEvent.Path);
+            FMODUnity.RuntimeManager.PlayOneShot(submitEvent);
             ContinueStory();
         }
     }

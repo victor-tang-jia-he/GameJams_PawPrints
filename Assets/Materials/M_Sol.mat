@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestTree
-  m_Shader: {fileID: -6465566751694194690, guid: 311f4bbe2163b954cb0eab8288bde1fe, type: 3}
+  m_Name: M_Sol
+  m_Shader: {fileID: -6465566751694194690, guid: 95de69fd0c679b64da625b4ac160c155, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,6 +24,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BC:
+        m_Texture: {fileID: 2800000, guid: d2d4489cfd5ebf043a708be2ed5476d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -110,7 +114,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0.046
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -120,8 +124,8 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+    - _Color: {r: 0.21960783, g: 0.21960783, b: 0.21960783, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

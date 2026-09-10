@@ -545,6 +545,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6453304380137331430, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: submitEvent.Path
+      value: event:/SFX/sfx_ui_clic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453304380137331430, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: submitEvent.Guid.Data1
+      value: -122179917
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453304380137331430, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: submitEvent.Guid.Data2
+      value: 1078944753
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453304380137331430, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: submitEvent.Guid.Data3
+      value: 1230502794
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453304380137331430, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: submitEvent.Guid.Data4
+      value: -280744037
+      objectReference: {fileID: 0}
     - target: {fileID: 7570582444472332658, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_TargetCamera
       value: 
