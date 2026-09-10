@@ -533,26 +533,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: UIClickSound.Path
-      value: event:/SFX/sfx_dog_bark
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: UIClickSound.Guid.Data1
-      value: 1617380502
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: UIClickSound.Guid.Data2
-      value: 1320666826
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: UIClickSound.Guid.Data3
-      value: 1581969301
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
-      propertyPath: UIClickSound.Guid.Data4
-      value: -1696413066
-      objectReference: {fileID: 0}
     - target: {fileID: 6386369310946937457, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

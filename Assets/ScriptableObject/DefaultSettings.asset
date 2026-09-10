@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2c31e945800b84e9a35dda10ad3936, type: 3}
   m_Name: DefaultSettings
   m_EditorClassIdentifier: Assembly-CSharp::SO_Settings
-  MasterVolume: 0.64418423
-  SFXVolume: 0.37527668
-  MusicVolume: 0.57341933
+  MasterVolume: 1
+  SFXVolume: 1
+  MusicVolume: 1

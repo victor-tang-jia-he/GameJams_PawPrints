@@ -166,6 +166,7 @@ public class UIManager : Manager<UIManager>
 
     public void OnInventoryButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         if (currentMenuType == MenuType.InGame)
         {
             ShowPanel(MenuType.Inventory);
@@ -181,6 +182,7 @@ public class UIManager : Manager<UIManager>
 
     public void OnBackButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         if (lastMenuType == MenuType.None) return;
 
         if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
@@ -205,6 +207,7 @@ public class UIManager : Manager<UIManager>
 
     public void OnSaveButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(UIClickSound.Path);
         settings.Save();
     }
 

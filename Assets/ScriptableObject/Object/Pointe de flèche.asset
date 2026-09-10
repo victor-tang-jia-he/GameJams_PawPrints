@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bfb1834eaed65418ba8ece1ddeb92c, type: 3}
   m_Name: "Pointe de fl\xE8che"
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
-  id: 0
+  id: 9
   knotName: "Pointe de fl\xE8che"
   description: "Une pointe de fl\xE8che sans bout, elle semble avoir \xE9t\xE9 cass\xE9e
     en deux. Un peu de sang s\xE9ch\xE9 se trouve sur son extr\xE9mit\xE9."
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}

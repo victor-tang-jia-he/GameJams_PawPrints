@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bfb1834eaed65418ba8ece1ddeb92c, type: 3}
   m_Name: Dessin d'enfant
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
-  id: 2
+  id: 5
   knotName: Dessin d'enfant
   description: "Un dessin d'enfant, de peut-\xEAtre 8-10 ans, repr\xE9sentant une
     petite fille aux c\xF4t\xE9s de son p\xE8re (visage gribouill\xE9) et d'un chiot."
   mesh: {fileID: 0}
-  backgroundSprite: {fileID: 0}
-  icon: {fileID: 0}
+  backgroundSprite: {fileID: 868153430, guid: 21abe7d4410a10b478c21e39a67730bc, type: 3}
+  icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}
