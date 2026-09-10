@@ -929,6 +929,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2380111530911001925, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
+      propertyPath: skipIntroVideo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380111530911001925, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
       propertyPath: mainMenuSceneId
       value: 0
       objectReference: {fileID: 0}
@@ -999,6 +1003,26 @@ PrefabInstance:
     - target: {fileID: 4232985722978871587, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243676555945276022, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
+      propertyPath: submitEvent.Path
+      value: event:/SFX/sfx_ui_clic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243676555945276022, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
+      propertyPath: submitEvent.Guid.Data1
+      value: -122179917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243676555945276022, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
+      propertyPath: submitEvent.Guid.Data2
+      value: 1078944753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243676555945276022, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
+      propertyPath: submitEvent.Guid.Data3
+      value: 1230502794
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243676555945276022, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
+      propertyPath: submitEvent.Guid.Data4
+      value: -280744037
       objectReference: {fileID: 0}
     - target: {fileID: 4308500627223831265, guid: 9bf3860c6d9468e419c41fd2aae2b08d, type: 3}
       propertyPath: m_AnchorMax.x
