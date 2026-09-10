@@ -1,6 +1,5 @@
 using Com.DefaultCompany.LostSoul;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
@@ -11,8 +10,16 @@ public class Movement : MonoBehaviour
     public float TurnSpeed;
     private PlayerInputHandler inputHandler;
 
+    [Header("Footstep Sound Settings")]
+    [SerializeField] private float stepInterval;
+    private float footstepTimer;
+    [SerializeField] private FMODUnity.EventReference footstepEvent;
+
     [SerializeField]
     private GameObject playerSkin;
+
+    public bool IsMoving { get; private set; } = false;
+
     private void Start()
     {
         inputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
@@ -23,8 +30,21 @@ public class Movement : MonoBehaviour
         Vector3 movement = new Vector3(inputHandler.MoveDirection.x, 0, inputHandler.MoveDirection.y).normalized;
         if (movement != Vector3.zero)
         {
+            IsMoving = true;
             Vector3 desiredForward = Vector3.RotateTowards(playerSkin.transform.forward, movement, Mathf.Deg2Rad * TurnSpeed * Time.deltaTime, 0.0f);
             playerSkin.transform.rotation = Quaternion.LookRotation(desiredForward);
+
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(footstepEvent);
+                footstepTimer = stepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+            IsMoving = false;
         }
     }
     private void FixedUpdate()
