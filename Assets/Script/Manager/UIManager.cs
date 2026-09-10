@@ -28,6 +28,7 @@ public class UIManager : Manager<UIManager>
 
     [Header("Intro video")]
     [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private bool skipIntroVideo;
 
     [Header("Scene Id")]
     [SerializeField] private int mainMenuSceneId = 1;
@@ -82,11 +83,21 @@ public class UIManager : Manager<UIManager>
         settingsMenu.SetActive(false);
         dialogueUI.SetActive(false);
         inventoryUI.SetActive(false);
-        fadePanel.gameObject.SetActive(false);
-
-        videoPlayer.loopPointReached += OnVideoFinished;
     }
 
+    private void Start()
+    {
+        if (skipIntroVideo)
+        {
+            fadePanel.gameObject.SetActive(true);
+            videoPlayer.gameObject.SetActive(false);
+            FadeOut();
+            ShowPanel(DefaultMenu);
+            return;
+        }
+        fadePanel.gameObject.SetActive(false);
+        videoPlayer.loopPointReached += OnVideoFinished;
+    }
     private void OnVideoFinished(VideoPlayer player)
     {
         videoPlayer.loopPointReached -= OnVideoFinished;
