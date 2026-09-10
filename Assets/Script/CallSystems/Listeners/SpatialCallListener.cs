@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 public struct CallData
 {
-    public GameObject caller;
+    public SpatialCall spatialCall;
+    public GameObject callOwner;
 }
 public class SpatialCallListener : MonoBehaviour
 {
