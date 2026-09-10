@@ -2802,6 +2802,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7068825951916800380, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      propertyPath: stepInterval
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7068825951916800380, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: MovementSpeed
       value: 4
       objectReference: {fileID: 0}
@@ -2907,6 +2911,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1732488690}
+    - targetCorrespondingSourceObject: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1399931791}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
 --- !u!4 &44311443 stripped
@@ -87660,6 +87667,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7529933745881965349, guid: 107e1086451be654ba03a222ad536d6b, type: 3}
   m_PrefabInstance: {fileID: 1399652255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1399931790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399931791}
+  - component: {fileID: 1399931792}
+  m_Layer: 0
+  m_Name: ListenerFMODStudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399931791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399931790}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: -5.65}
+  m_LocalScale: {x: 1.5625, y: 1.1074064, z: 1.5625}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 44311443}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1399931792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399931790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &1400149729
 PrefabInstance:
   m_ObjectHideFlags: 0
