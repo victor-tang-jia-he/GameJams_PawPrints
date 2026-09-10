@@ -67,11 +67,7 @@
 			<destination>{3861ce30-7719-4282-b790-b94180d395db}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{4a08dd52-cf21-4018-bab6-ebf28d1f5b50}">
-		<property name="maximumDistance">
-			<value>50</value>
-		</property>
-	</object>
+	<object class="EventAutomatableProperties" id="{4a08dd52-cf21-4018-bab6-ebf28d1f5b50}" />
 	<object class="MarkerTrack" id="{c9a34749-afdc-454c-b6c2-504ced6e2249}" />
 	<object class="GroupTrack" id="{717e3c26-a283-447d-8d24-7ae430dddc1a}">
 		<relationship name="mixerGroup">
@@ -320,7 +316,7 @@
 	<object class="MixerBusFader" id="{042daf20-cd78-4bae-b43e-23a603c0ac7c}" />
 	<object class="AutomationPoint" id="{65863d01-a3a9-4b5f-b927-ccaca4b259e1}">
 		<property name="position">
-			<value>0.35310734463276838</value>
+			<value>0.14124293785310738</value>
 		</property>
 		<property name="value">
 			<value>5</value>
@@ -331,7 +327,7 @@
 	</object>
 	<object class="AutomationPoint" id="{d065bf92-338c-4dce-bdcd-6d5878be93bc}">
 		<property name="position">
-			<value>50</value>
+			<value>20</value>
 		</property>
 		<property name="value">
 			<value>-9</value>
@@ -373,7 +369,7 @@
 	</object>
 	<object class="AutomationPoint" id="{25bd264b-d625-4582-99b9-3309630add21}">
 		<property name="position">
-			<value>0.17213983050847459</value>
+			<value>0.068855932203389841</value>
 		</property>
 		<property name="value">
 			<value>0.199999988</value>
@@ -384,7 +380,7 @@
 	</object>
 	<object class="AutomationPoint" id="{15c8cdcb-83b7-42e8-b77b-cd454857f9fb}">
 		<property name="position">
-			<value>49.748411016949156</value>
+			<value>19.899364406779661</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -400,7 +396,7 @@
 	</object>
 	<object class="AutomationPoint" id="{e5820d9a-0fa9-4249-9e63-b230994e5f40}">
 		<property name="position">
-			<value>50</value>
+			<value>20</value>
 		</property>
 		<property name="value">
 			<value>-13</value>
