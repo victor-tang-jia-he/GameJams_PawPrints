@@ -1269,6 +1269,26 @@ retry:
                 RuntimeUtils.DebugLogWarning("[FMOD] Event not found: " + eventReference);
             }
         }
+        public static void PlayOneShot(EventReference eventReference, string parameterName, string labelsName, Vector3 position = new Vector3())
+        {
+            try
+            {
+                PlayOneShot(eventReference.Guid, parameterName, labelsName, position);
+            }
+            catch (EventNotFoundException)
+            {
+                Debug.LogWarning("[FMOD] Event not found: " + eventReference);
+            }
+        }
+
+        public static void PlayOneShot(FMOD.GUID guid, string parameterName, string labelsName, Vector3 position = new Vector3())
+        {
+            var instance = CreateInstance(guid);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(position));
+            instance.setParameterByNameWithLabel(parameterName, labelsName);
+            instance.start();
+            instance.release();
+        }
 
         public static void PlayOneShot(string path, Vector3 position = new Vector3())
         {

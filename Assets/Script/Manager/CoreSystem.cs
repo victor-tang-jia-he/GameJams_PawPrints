@@ -107,7 +107,7 @@ namespace Com.DefaultCompany.LostSoul
             Type type = typeof(T);
             if (service == null || _services.ContainsKey(type))
             {
-                Debug.LogError($"Attempt to register a null service or {type} is already registered.");
+                Debug.LogWarning($"Attempt to register a null service or {type} is already registered.");
                 return false;
             }
 
