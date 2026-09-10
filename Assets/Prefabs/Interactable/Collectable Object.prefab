@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3573215840593443245}
   - component: {fileID: 2408589647547585542}
   - component: {fileID: 7689092079733259240}
+  - component: {fileID: 208766981191343408}
   m_Layer: 0
   m_Name: Collectable Object
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,5 +126,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5955a93fbe2330648ad48453956ba86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectableObject
-  itemInfo: {fileID: 11400000, guid: a51c91349f5e9214cb16f8327b72fd5a, type: 2}
+  itemInfo: {fileID: 11400000, guid: 1e64d4edc12074348a1e7e78e2151ef8, type: 2}
   meshFilter: {fileID: 0}
+--- !u!114 &208766981191343408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936044386346044042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78601300ba7c38e42bb4deac2f937f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpatialCallListenerMesh
+  OnListenToCallEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  glowingTime: 1
+  glowedTime: 2
+  unglowingTime: 1

@@ -242,6 +242,7 @@
 		<relationship name="effects">
 			<destination>{909f8e1c-3cef-4bff-88c8-0c0c07ac2483}</destination>
 			<destination>{cda267bf-cbc1-4887-aa8f-ef2e74444788}</destination>
+			<destination>{193ea0f2-c1ac-45c7-86dc-6e95508b7e57}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0fb80032-6cd6-46c6-9b5c-4159e3b2fa2e}" />
@@ -298,6 +299,17 @@
 			<destination>{9b59a89a-7460-48c6-99a3-7e730090f71d}</destination>
 		</relationship>
 	</object>
+	<object class="MixerSend" id="{193ea0f2-c1ac-45c7-86dc-6e95508b7e57}">
+		<property name="level">
+			<value>-10</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{160dfad7-098a-43f3-9ab3-f70126803856}</destination>
+		</relationship>
+	</object>
 	<object class="AutomationCurve" id="{cb91fd58-da3d-432d-aae1-684cf574b80c}">
 		<relationship name="parameter">
 			<destination>{395fa89c-b726-41be-83fc-eaa3eb604ca0}</destination>
@@ -323,7 +335,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-4</value>
+			<value>-3</value>
 		</property>
 		<property name="curveShape">
 			<value>0.986048579</value>
@@ -334,7 +346,7 @@
 			<value>100</value>
 		</property>
 		<property name="value">
-			<value>-20</value>
+			<value>-19</value>
 		</property>
 	</object>
 	<object class="Automator" id="{9b59a89a-7460-48c6-99a3-7e730090f71d}">

@@ -9,6 +9,7 @@ public class PlayerCall : MonoBehaviour
     [SerializeField]
     private float callCooldown = 1.0f;
 
+    private bool canCall = true;
     private bool isOnCooldown = false;
     private Timer cooldownTimer;
 
@@ -26,10 +27,14 @@ public class PlayerCall : MonoBehaviour
         }
     }
 
+    public void SetCallEnable(bool enable)
+    {
+        canCall = enable;
+    }
     public void Call()
     {
         
-        if (isOnCooldown)
+        if (isOnCooldown || !canCall)
         {
             return;
         }
@@ -37,7 +42,7 @@ public class PlayerCall : MonoBehaviour
         isOnCooldown = true;
         cooldownTimer = new Timer(callCooldown);
 
-       callInvoker.GlobalCall(transform.position, CallRadius, 1.0f);
+        callInvoker.GlobalCall(transform.position, CallRadius, 1.0f);
         
     }
 }

@@ -13,15 +13,53 @@ MonoBehaviour:
   m_Name: MainStory
   m_EditorClassIdentifier: Assembly-CSharp::SO_Story
   dialogueTexts:
-  - KnotName: Test Knot
+  - KnotName: Dessin d'enfant
     texts:
-    - Begin story
-    - Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1Blabla 1
-    - blabla 2blabla 2blabla 2blabla 2blabla 2blabla 2blabla 2
-    - End story
-  - KnotName: 1Door
+    - 'Dad, Saga and I. He gave her to me as a parting gift probably, saying she''d
+      protect me. '
+    - He must have felt he wouldn't come back. Saga does her job very well, I hope
+      he's proud.
+  - KnotName: Balle en cuir
     texts:
-    - I am a door
+    - 'I made this ball for her our first spring together. '
+    - I had never sown on leather before, and getting the sand inside made a real
+      mess in my room.
+    - Saga loves it, it is in much better shape than I remember though...
   - KnotName: Missing Object
     texts:
     - Object required is missing
+  - KnotName: Os humain
+    texts:
+    - 'Saga brought this home after her first battle.  '
+    - I had my doubts bringing her with me, scared she might end up wounded.
+    - 'She revealed herself to be a true warrior in the end.  '
+    - Had to make her sleep in the shed for weeks for she didn't want to leave her
+      trophy, and the stentch of the flesh was unbearable.
+    - She plays with it still, like with a common woodstick.
+  - KnotName: "D\xE9bris/Morceau de chemin\xE9"
+    texts:
+    - 'This appeared a few weeks ago during the night. We heard it crash and Saga
+      acted wary until the next day.  '
+    - 'She still growls at it when we pass by. '
+  - KnotName: Morceau de drapeau ennemi
+    texts:
+    - 'Saga brought this the other day, after wandering off alone for a few hours. '
+    - 'Dad showed me something similar before leaving, warned to never trust one
+      who bore those marks and colors. '
+    - They're supposed to live weeks away from here.
+  - KnotName: "Pointe de fl\xE8che"
+    texts:
+    - What a keepsake. Your first battle wound, a scar to be proud of. You used to
+      scare me, charging in like a beast.
+    - ' I know now no wound can take you out....I hope.'
+  - KnotName: Collier
+    texts:
+    - 'I had this made for her by the leathersmith of the nearest town. The medalion
+      was my work. '
+    - Although it is sloppy, I wanted her to wear something made by my hand. She
+      left bare necked that day...
+  - KnotName: Talharpa
+    texts:
+    - Your howls matched the music so well, I miss the melodies we made.
+    - I want to play together again.
+    - I can't wait...
