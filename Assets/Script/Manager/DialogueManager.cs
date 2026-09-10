@@ -125,7 +125,14 @@ public class DialogueManager : Manager<DialogueManager>
 
         OnDialogueStarted?.Invoke();
 
-        // TODO : Add background image
+        if (collectableItemInfo.backgroundSprite != null)
+        {
+            uiBackgroudImageDialogue.sprite = collectableItemInfo.backgroundSprite;
+        }
+        else
+        {
+            Debug.LogWarning($"Background sprite is not set for {collectableItemInfo.knotName}");
+        }
         SetTransparency(uiBackgroudImageDialogue, 1);
         dialoguePanel.SetActive(true);
 
@@ -140,6 +147,7 @@ public class DialogueManager : Manager<DialogueManager>
 
         dialoguePanel.SetActive(false);
         SetTransparency(uiBackgroudImageDialogue, 0);
+        uiBackgroudImageDialogue.sprite = null; // Reset background sprite
         dialogueText.text = "???"; // Reset dialogue text
         currentStory.Reset();
         OnDialogueEnded?.Invoke(); // Notice player FSM & other to exit dialogue mode
