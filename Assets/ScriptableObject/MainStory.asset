@@ -21,24 +21,26 @@ MonoBehaviour:
       he's proud.
   - KnotName: Balle en cuir
     texts:
-    - 'I made this ball for her our first spring together. I had never sown on leather
-      before, and getting the sand inside made a real mess in my room. '
+    - 'I made this ball for her our first spring together. '
+    - I had never sown on leather before, and getting the sand inside made a real
+      mess in my room.
     - Saga loves it, it is in much better shape than I remember though...
   - KnotName: Missing Object
     texts:
     - Object required is missing
   - KnotName: Os humain
     texts:
-    - 'Saga brought this home after her first battle. I had my doubts bringing her
-      with me, scared she might end up wounded. '
-    - ' She revealed herself to be a true warrior in the end. Had to make her sleep
-      in the shed for weeks for she didn''t want to leave her trophy, and the stentch
-      of the flesh was unbearable. '
+    - 'Saga brought this home after her first battle.  '
+    - I had my doubts bringing her with me, scared she might end up wounded.
+    - 'She revealed herself to be a true warrior in the end.  '
+    - Had to make her sleep in the shed for weeks for she didn't want to leave her
+      trophy, and the stentch of the flesh was unbearable.
     - She plays with it still, like with a common woodstick.
   - KnotName: "D\xE9bris/Morceau de chemin\xE9"
     texts:
     - 'This appeared a few weeks ago during the night. We heard it crash and Saga
-      acted wary until the next day. She still growls at it when we pass by. '
+      acted wary until the next day.  '
+    - 'She still growls at it when we pass by. '
   - KnotName: Morceau de drapeau ennemi
     texts:
     - 'Saga brought this the other day, after wandering off alone for a few hours. '
@@ -58,5 +60,6 @@ MonoBehaviour:
       left bare necked that day...
   - KnotName: Talharpa
     texts:
-    - Your howls matched the music so well, I miss the melodies we made. I want to
-      play together again. I can't wait...
+    - Your howls matched the music so well, I miss the melodies we made.
+    - I want to play together again.
+    - I can't wait...

@@ -50,14 +50,21 @@ public class DialogueManager : Manager<DialogueManager>
     [Header("Dialogue UI Link & Setting")]
     [SerializeField] private float typingSpeed = 1f;
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Image uiBackgroudImageDialogue;
+
+    [Header("Dialogue Sound Effect")]
+    public FMODUnity.EventReference submitEvent;
+    FMOD.Studio.EventInstance submitEventInstance;
+
+    public FMODUnity.EventReference displayLineLetterEvent;
+    FMOD.Studio.EventInstance displayLineLetterEventInstance;
 
     #region Property
     private bool isPlaying = false;
     private bool canContinueToNextLine = false;
     private StoryKnot currentStory = new();
     private PlayerInputHandler playerInputHandler;
+    private UIManager uiManager;
 
     // For dialogue system
     private Coroutine displayLineCoroutine = null; // Used to keep in track the coroutine
@@ -65,13 +72,12 @@ public class DialogueManager : Manager<DialogueManager>
 
     private void Awake()
     {
-        if (dialogueText == null || uiBackgroudImageDialogue == null || dialoguePanel == null)
+        if (dialogueText == null || uiBackgroudImageDialogue == null)
         {
             Debug.LogError("Dialogue system can't work properly without those object or setting assigned, check if anything is missing before starting the game");
             return;
         }
 
-        dialoguePanel.SetActive(false);
         dialogueText.text = string.Empty;
         SetTransparency(uiBackgroudImageDialogue, 0);
     }
@@ -82,6 +88,7 @@ public class DialogueManager : Manager<DialogueManager>
 
         if (canContinueToNextLine && playerInputHandler.GetSubmitPressed())
         {
+            FMODUnity.RuntimeManager.PlayOneShot(submitEvent.Path);
             ContinueStory();
         }
     }
@@ -102,6 +109,10 @@ public class DialogueManager : Manager<DialogueManager>
         if (serviceType == typeof(PlayerInputHandler))
         {
             playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
+        }
+        if (serviceType == typeof(UIManager))
+        {
+            uiManager = CoreSystem.Instance.GetService<UIManager>();
         }
     }
 
@@ -135,7 +146,7 @@ public class DialogueManager : Manager<DialogueManager>
             Debug.LogWarning($"Background sprite is not set for {collectableItemInfo.knotName}");
         }
         SetTransparency(uiBackgroudImageDialogue, 1);
-        dialoguePanel.SetActive(true);
+        uiManager.ShowPanel(MenuType.Dialogue);
 
         ContinueStory();
         yield return null;
@@ -146,7 +157,7 @@ public class DialogueManager : Manager<DialogueManager>
         if (!isPlaying) yield break;
         isPlaying = false;
 
-        dialoguePanel.SetActive(false);
+        uiManager.ShowPanel(MenuType.InGame);
         SetTransparency(uiBackgroudImageDialogue, 0);
         uiBackgroudImageDialogue.sprite = null; // Reset background sprite
         dialogueText.text = "???"; // Reset dialogue text
