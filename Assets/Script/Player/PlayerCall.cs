@@ -1,4 +1,5 @@
 using Com.DefaultCompany.LostSoul;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,10 @@ public class PlayerCall : MonoBehaviour
     [SerializeField]
     private float callCooldown = 1.0f;
 
+    [SerializeField]
+    private FMODUnity.EventReference playerCallSound;
+
+    
     private bool canCall = true;
     private bool isOnCooldown = false;
     private Timer cooldownTimer;
@@ -18,6 +23,11 @@ public class PlayerCall : MonoBehaviour
     {
         callInvoker = CoreSystem.Instance.GetService<GlobalCallInvoker>();
         CoreSystem.Instance.GetService<PlayerInputHandler>().OnPlayerCallInput.AddListener(Call);
+
+        DialogueManager dialogueManager = CoreSystem.Instance.GetService<DialogueManager>();
+        dialogueManager.OnDialogueStarted.AddListener(DisableCall);
+        dialogueManager.OnDialogueEnded.AddListener(EnableCall);
+        
     }
     void Update()
     {
@@ -31,6 +41,16 @@ public class PlayerCall : MonoBehaviour
     {
         canCall = enable;
     }
+
+    public void DisableCall()
+    {
+        SetCallEnable(false);
+    }
+
+    public void EnableCall()
+    {
+        SetCallEnable(true);
+    }
     public void Call()
     {
         
@@ -41,8 +61,14 @@ public class PlayerCall : MonoBehaviour
         Debug.Log("Player Call");
         isOnCooldown = true;
         cooldownTimer = new Timer(callCooldown);
-
-        callInvoker.GlobalCall(transform.position, CallRadius, 1.0f);
+        FMODUnity.RuntimeManager.PlayOneShot(playerCallSound);
+        callInvoker.GlobalCall(gameObject,transform.position, CallRadius, 1.0f);
         
+    }
+    private void OnDestroy()
+    {
+        DialogueManager dialogueManager = CoreSystem.Instance.GetService<DialogueManager>();
+        dialogueManager.OnDialogueStarted.RemoveListener(DisableCall);
+        dialogueManager.OnDialogueEnded.RemoveListener(EnableCall);
     }
 }
