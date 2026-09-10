@@ -637,9 +637,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050204391227946111, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: introVideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 4087fcf7bd50b3c4eab0d0449a173a3b, type: 3}
     - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: skipIntroVideo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6386369310946937457, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -674,9 +682,29 @@ PrefabInstance:
       value: -280744037
       objectReference: {fileID: 0}
     - target: {fileID: 7570582444472332658, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570582444472332658, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: m_AspectRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570582444472332658, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570582444472332658, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_TargetCamera
       value: 
       objectReference: {fileID: 961739752}
+    - target: {fileID: 7570582444472332658, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: m_AudioOutputMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570582444472332658, guid: b7f11e745113472419402090bd130bb8, type: 3}
+      propertyPath: m_WaitForFirstFrame
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7575745485811831110, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
