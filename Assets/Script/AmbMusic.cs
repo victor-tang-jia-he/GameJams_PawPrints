@@ -9,32 +9,31 @@ public class AmbMusic : MonoBehaviour
 
     private UIManager uiManager;
 
-    private void Awake()
+    private void Start()
     {
         ambMusicInstance = FMODUnity.RuntimeManager.CreateInstance(ambMusicReference);
         ambMusicInstance.start();
-    }
-
-    private void Start()
-    {
         uiManager = CoreSystem.Instance.GetService<UIManager>();
+
         if (uiManager != null)
         {
             uiManager.OnSceneChange += StopAmbMusic;
         }
         else
         {
-            Debug.LogError("UIManager not found in CoreSystem.");
+            Debug.LogError("One or more services not found in CoreSystem.");
         }
     }
     private void OnDestroy()
     {
-        CoreSystem.Instance.GetService<UIManager>().OnSceneChange -= StopAmbMusic;
+        if (uiManager != null)
+        {
+            uiManager.OnSceneChange -= StopAmbMusic;
+        }
     }
 
     private void StopAmbMusic()
     {
-        Debug.Log("Stopping ambient music");
         ambMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         ambMusicInstance.release();
     }

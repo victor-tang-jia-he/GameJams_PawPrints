@@ -2,7 +2,6 @@ using Com.DefaultCompany.LostSoul;
 using System;
 using System.Collections;
 using TMPro;
-using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,14 +51,6 @@ public class DialogueManager : Manager<DialogueManager>
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Image uiBackgroudImageDialogue;
-
-    [Header("Dialogue Sound Effect")]
-    public FMODUnity.EventReference submitEvent;
-    FMOD.Studio.EventInstance submitEventInstance;
-
-    public FMODUnity.EventReference displayLineLetterEvent;
-    FMOD.Studio.EventInstance displayLineLetterEventInstance;
-
 
     #region Property
     private bool isPlaying = false;

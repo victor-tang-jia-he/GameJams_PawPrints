@@ -12,12 +12,12 @@ using UnityEngine.UI;
 public enum MenuType
 {
     None = 0,
-    Main,
-    InGame,
-    Pause,
-    Settings,
-    Dialogue,
-    Inventory
+    Main = 1,
+    InGame = 2,
+    Pause = 3,
+    Settings = 4,
+    Dialogue = 5,
+    Inventory = 6
 }
 
 public class UIManager : Manager<UIManager>
@@ -48,6 +48,7 @@ public class UIManager : Manager<UIManager>
     public bool IsFadingProcess { get; private set; } = false;
 
     private PlayerInputHandler playerInputHandler;
+    private Settings settings;
 
     private void Awake()
     {
@@ -81,18 +82,7 @@ public class UIManager : Manager<UIManager>
     {
         if (playerInputHandler.GetEscapePressed())
         {
-            if (lastMenuType == MenuType.None) return;
-
-            if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
-                !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause))
-            {
-                ShowPanel(lastMenuType);
-                return;
-            }
-            if (currentMenuType == MenuType.InGame)
-            {
-                ShowPanel(MenuType.Pause);
-            }
+            OnBackButton();
         }
     }
 
@@ -114,20 +104,37 @@ public class UIManager : Manager<UIManager>
         {
             playerInputHandler = CoreSystem.Instance.GetService<PlayerInputHandler>();
         }
+        if (serviceType == typeof(Settings))
+        {
+            settings = CoreSystem.Instance.GetService<Settings>();
+        }
     }
 
     #region Button Events
     public void OnPlayButton()
     {
-        StartCoroutine(PlayButtonCoroutine());
+        StartCoroutine(CO_PlayButton());
+    }
+    public void OnQuitPauseButton()
+    {
+        StartCoroutine(CO_QuitToMain());
     }
     // button function with Coroutine to handle fade in and fade out
-    private IEnumerator PlayButtonCoroutine()
+    private IEnumerator CO_PlayButton()
     {
         OnSceneChange?.Invoke();
         yield return FadeIn(1f);
         SceneManager.LoadScene(1, LoadSceneMode.Single);
         ShowPanel(MenuType.InGame);
+        yield return new WaitForSeconds(1f);
+        yield return FadeOut(1f);
+    }
+    private IEnumerator CO_QuitToMain()
+    {
+        OnSceneChange?.Invoke();
+        yield return FadeIn(1f);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        ShowPanel(MenuType.Main);
         yield return new WaitForSeconds(1f);
         yield return FadeOut(1f);
     }
@@ -137,21 +144,40 @@ public class UIManager : Manager<UIManager>
         ShowPanel(MenuType.Settings);
     }
 
-    public void OnBackSettingToMainMenuButton()
-    {
-        ShowPanel(MenuType.Main);
-    }
-
     public void OnPauseButton()
     {
         ShowPanel(MenuType.Pause);
     }
-
     public void OnQuit()
     {
         Application.Quit();
     }
 
+    public void UniversalShowPanel(int menuType)
+    {
+        ShowPanel((MenuType)menuType);
+    }
+
+    public void OnBackButton()
+    {
+        if (lastMenuType == MenuType.None) return;
+
+        if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
+            !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause))
+        {
+            ShowPanel(lastMenuType);
+            return;
+        }
+        if (currentMenuType == MenuType.InGame)
+        {
+            ShowPanel(MenuType.Pause);
+        }
+    }
+
+    public void OnSaveButton()
+    {
+        settings.Save();
+    }
 
     #endregion
     public void ShowPanel(MenuType menuType)
