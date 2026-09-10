@@ -1,13 +1,15 @@
 using Com.DefaultCompany.LostSoul;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class NextLevel : MonoBehaviour, IInteractable
 {
     public int nextSceneId;
-    public InteractableItemInfo objectMissingItemInfo;
-    public List<InteractableItemInfo> requiredCollectableObjects;
-    public GameObject interactionPrompt;
+    [SerializeField] private InteractableItemInfo objectMissingItemInfo;
+    [SerializeField] private List<InteractableItemInfo> requiredCollectableObjects = new();
+    [SerializeField] private GameObject interactionPrompt;
+    [SerializeField] private VideoClip videoClipDuringTransition;
     public MenuType menuType = MenuType.Dialogue;
 
     private void Awake()
@@ -34,7 +36,7 @@ public class NextLevel : MonoBehaviour, IInteractable
             }
             if (isAllRequiredObjGetted)
             {
-                CoreSystem.Instance.GetService<UIManager>().ChangeScene(nextSceneId, menuType);
+                CoreSystem.Instance.GetService<UIManager>().ChangeScene(nextSceneId, menuType, videoClipDuringTransition);
                 return;
             }
         }
