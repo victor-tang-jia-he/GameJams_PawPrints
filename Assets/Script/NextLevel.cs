@@ -7,7 +7,16 @@ public class NextLevel : MonoBehaviour, IInteractable
     public int nextSceneId;
     public InteractableItemInfo objectMissingItemInfo;
     public List<InteractableItemInfo> requiredCollectableObjects;
+    public GameObject interactionPrompt;
     public MenuType menuType = MenuType.Dialogue;
+
+    private void Awake()
+    {
+        if (requiredCollectableObjects == null || requiredCollectableObjects.Count == 0)
+        {
+            Debug.LogWarning($"NextLevel: Required Collectable Objects missing");
+        }
+    }
 
     void IInteractable.Interact()
     {
