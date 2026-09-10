@@ -29,7 +29,7 @@ public class UIManager : Manager<UIManager>
     [Header("Intro video")]
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private VideoClip introVideoClip;
-    [SerializeField] private bool skipIntroVideo;
+    [SerializeField] private bool skipVideo;
 
     [Header("Scene Id")]
     [SerializeField] private int mainMenuSceneId = 1;
@@ -59,6 +59,8 @@ public class UIManager : Manager<UIManager>
 
     public bool IsFadingProcess { get; private set; } = false;
 
+    private bool canInteractWithUI = true;
+
     private PlayerInputHandler playerInputHandler;
     private PlayerInput playerInput;
     private Settings settings;
@@ -84,34 +86,14 @@ public class UIManager : Manager<UIManager>
         settingsMenu.SetActive(false);
         dialogueUI.SetActive(false);
         inventoryUI.SetActive(false);
+        videoPlayer.gameObject.SetActive(false);
     }
 
     private void Start()
     {
-        if (skipIntroVideo)
-        {
-            fadePanel.gameObject.SetActive(true);
-            videoPlayer.gameObject.SetActive(false);
-            FadeOut();
-            ShowPanel(DefaultMenu);
-            return;
-        }
-        PlayVideo(introVideoClip);
-    }
-    private void OnVideoFinished(VideoPlayer player)
-    {
-        videoPlayer.loopPointReached -= OnVideoFinished;
-        fadePanel.gameObject.SetActive(true);
-        videoPlayer.gameObject.SetActive(false);
-        FadeOut();
         ShowPanel(DefaultMenu);
-    }
 
-    public void PlayVideo(VideoClip videoClip)
-    {
-        fadePanel.gameObject.SetActive(false);
-        videoPlayer.clip = videoClip;
-        videoPlayer.loopPointReached += OnVideoFinished;
+        FadeOut(); // Start with fade out
     }
     private void Update()
     {
@@ -159,7 +141,7 @@ public class UIManager : Manager<UIManager>
     public void OnPlayButton()
     {
         FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
-        StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame));
+        StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame, introVideoClip));
     }
     public void OnQuitPauseButton()
     {
@@ -193,6 +175,12 @@ public class UIManager : Manager<UIManager>
             ShowPanel(MenuType.Inventory);
             return;
         }
+        if (currentMenuType == MenuType.Inventory)
+        {
+            ShowPanel(lastMenuType);
+            return;
+        }
+
     }
 
     public void UniversalShowPanel(int menuType)
@@ -236,7 +224,7 @@ public class UIManager : Manager<UIManager>
     #endregion
     public void ShowPanel(MenuType menuType)
     {
-        if (currentMenuType == menuType)
+        if (!canInteractWithUI || currentMenuType == menuType)
             return;
         HideCurrentPanel();
         switch (menuType)
@@ -335,17 +323,48 @@ public class UIManager : Manager<UIManager>
     }
     #endregion
 
-    public void ChangeScene(int nextSceneId, MenuType menuType)
+    public void ChangeScene(int nextSceneId, MenuType menuType, VideoClip videoClip = null)
     {
-        StartCoroutine(StartChangingScene(nextSceneId, menuType));
+        StartCoroutine(StartChangingScene(nextSceneId, menuType, videoClip));
     }
 
-    private IEnumerator StartChangingScene(int nextSceneId, MenuType menuType)
+    private IEnumerator StartChangingScene(int nextSceneId, MenuType menuType, VideoClip videoClip = null)
     {
+        if (!canInteractWithUI)
+            yield break;
+
+        canInteractWithUI = false;
         OnSceneChange?.Invoke();
         yield return FadeIn(1f);
+        HideCurrentPanel();
+
+        playerInput.SwitchCurrentActionMap("UI");
+
+        if (videoClip != null && !skipVideo)
+        {
+            videoPlayer.clip = videoClip;
+            videoPlayer.targetCamera = Camera.main;
+            videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.CameraNearPlane;
+            videoPlayer.gameObject.SetActive(true);
+            videoPlayer.Prepare();
+
+            yield return new WaitUntil(() => videoPlayer.isPrepared);
+            videoPlayer.Play();
+
+            yield return new WaitUntil(() => videoPlayer.isPlaying);
+
+            fadePanel.gameObject.SetActive(false);
+            yield return new WaitUntil(() => !videoPlayer.isPlaying);
+
+            fadePanel.gameObject.SetActive(true);
+            videoPlayer.clip = null;
+            videoPlayer.gameObject.SetActive(false);
+        }
+
         SceneManager.LoadScene(nextSceneId, LoadSceneMode.Single);
+        canInteractWithUI = true;
         ShowPanel(menuType);
+
         yield return new WaitForSeconds(1f);
         yield return FadeOut(1f);
     }

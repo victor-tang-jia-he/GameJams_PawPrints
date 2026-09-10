@@ -310746,6 +310746,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6800695743376609366, guid: cdc98be63052c5d4a9369403cab8da45, type: 3}
+      propertyPath: videoClipDuringTransition
+      value: 
+      objectReference: {fileID: 32900000, guid: 4087fcf7bd50b3c4eab0d0449a173a3b, type: 3}
+    - target: {fileID: 6800695743376609366, guid: cdc98be63052c5d4a9369403cab8da45, type: 3}
       propertyPath: requiredCollectableObjects.Array.size
       value: 0
       objectReference: {fileID: 0}
