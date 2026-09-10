@@ -67,11 +67,7 @@
 			<destination>{3861ce30-7719-4282-b790-b94180d395db}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{4a08dd52-cf21-4018-bab6-ebf28d1f5b50}">
-		<property name="maximumDistance">
-			<value>50</value>
-		</property>
-	</object>
+	<object class="EventAutomatableProperties" id="{4a08dd52-cf21-4018-bab6-ebf28d1f5b50}" />
 	<object class="MarkerTrack" id="{c9a34749-afdc-454c-b6c2-504ced6e2249}" />
 	<object class="GroupTrack" id="{717e3c26-a283-447d-8d24-7ae430dddc1a}">
 		<relationship name="mixerGroup">
@@ -161,6 +157,12 @@
 	</object>
 	<object class="MixerBusPanner" id="{b742725e-0d95-4933-bf0a-948ba366546c}" />
 	<object class="MultiSound" id="{b2b9522d-4c10-4a5d-84a9-ebbe78f81e5c}">
+		<property name="pitch">
+			<value>-0.900000036</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{2daa437e-a0d5-4de3-9748-60909692a1cc}</destination>
+		</relationship>
 		<relationship name="sounds">
 			<destination>{3c241257-70bf-4391-9a7e-d32e9e45e4a2}</destination>
 			<destination>{4af29bf0-fa71-4ab0-a051-81f24b6b47e3}</destination>
@@ -169,8 +171,6 @@
 			<destination>{f6aa0000-fb4c-4192-b376-f6c57351cfd4}</destination>
 			<destination>{c031eb1d-22e7-4b53-abc0-971636fdb01b}</destination>
 			<destination>{5f6e1366-04c9-4c41-ae20-fe48b9de612b}</destination>
-			<destination>{4b81aebb-a1a8-4704-a697-fd864c9adf81}</destination>
-			<destination>{12203fa4-0c22-4c36-b37b-b7c82b24aea0}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{3b366f00-2c84-42b2-b14c-8786714a66ef}" />
@@ -270,6 +270,14 @@
 			<destination>{160dfad7-098a-43f3-9ab3-f70126803856}</destination>
 		</relationship>
 	</object>
+	<object class="RandomizerModulator" id="{2daa437e-a0d5-4de3-9748-60909692a1cc}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>1.04166675</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{3c241257-70bf-4391-9a7e-d32e9e45e4a2}">
 		<relationship name="audioFile">
 			<destination>{edc316dd-72dd-4a39-b2d1-b2c872ce70db}</destination>
@@ -305,20 +313,10 @@
 			<destination>{99ab0cb0-ef88-4583-a5ef-f7e07213b0a2}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{4b81aebb-a1a8-4704-a697-fd864c9adf81}">
-		<relationship name="audioFile">
-			<destination>{c8169784-087e-4ce6-a8dd-31843de92aa2}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{12203fa4-0c22-4c36-b37b-b7c82b24aea0}">
-		<relationship name="audioFile">
-			<destination>{2f502112-989f-48fe-87b3-8c27dfb9c82f}</destination>
-		</relationship>
-	</object>
 	<object class="MixerBusFader" id="{042daf20-cd78-4bae-b43e-23a603c0ac7c}" />
 	<object class="AutomationPoint" id="{65863d01-a3a9-4b5f-b927-ccaca4b259e1}">
 		<property name="position">
-			<value>0.35310734463276838</value>
+			<value>0.14124293785310738</value>
 		</property>
 		<property name="value">
 			<value>5</value>
@@ -329,7 +327,7 @@
 	</object>
 	<object class="AutomationPoint" id="{d065bf92-338c-4dce-bdcd-6d5878be93bc}">
 		<property name="position">
-			<value>50</value>
+			<value>20</value>
 		</property>
 		<property name="value">
 			<value>-9</value>
@@ -371,7 +369,7 @@
 	</object>
 	<object class="AutomationPoint" id="{25bd264b-d625-4582-99b9-3309630add21}">
 		<property name="position">
-			<value>0.17213983050847459</value>
+			<value>0.068855932203389841</value>
 		</property>
 		<property name="value">
 			<value>0.199999988</value>
@@ -382,7 +380,7 @@
 	</object>
 	<object class="AutomationPoint" id="{15c8cdcb-83b7-42e8-b77b-cd454857f9fb}">
 		<property name="position">
-			<value>49.748411016949156</value>
+			<value>19.899364406779661</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -398,7 +396,7 @@
 	</object>
 	<object class="AutomationPoint" id="{e5820d9a-0fa9-4249-9e63-b230994e5f40}">
 		<property name="position">
-			<value>50</value>
+			<value>20</value>
 		</property>
 		<property name="value">
 			<value>-13</value>
