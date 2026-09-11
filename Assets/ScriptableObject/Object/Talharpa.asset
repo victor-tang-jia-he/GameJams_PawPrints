@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 10
   knotName: Talharpa
-  description: "Une talharpa en bois. Une des cordes est cass\xE9e, le rendant injouable."
+  description: 'A wooden talharpa. One of the strings is broken, making it unplayable. '
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: 77732d6a8a89ffc439ddf330055b422a, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}

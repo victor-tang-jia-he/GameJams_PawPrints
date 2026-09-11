@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 4
   knotName: Collier
-  description: "Un collier de chien en cuir rouge, un m\xE9daillon en m\xE9tal y
-    est accroch\xE9, le cercle est irr\xE9guli\xE9, probablement forg\xE9 \xE0 la
-    main par quelqu'un d'inexp\xE9riment\xE9. Saga st grav\xE9 dessus, avec un trait
-    tremblant. "
+  description: "A red leather dog collar with a metal tag attached to it; the tag
+    is irregularly shaped, probably hand-forged by someone inexperienced. The word
+    \u201CSaga\u201D is engraved on it in shaky handwriting. "
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: 00a2e202b8f417e48b0222c3c4680700, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}

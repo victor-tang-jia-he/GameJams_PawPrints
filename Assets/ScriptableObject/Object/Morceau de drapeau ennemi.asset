@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 7
   knotName: Morceau de drapeau ennemi
-  description: "Le morceau d'un drapeau d'une troupe ennemie. Il est rouge sang,
-    l\xE9g\xE8rement arrach\xE9 et orn\xE9 d'un symbole."
+  description: 'A piece of an enemy unit''s flag. It is blood-red, slightly torn,
+    and adorned with a symbol. '
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: c13594a5127f6e548b045c76743ffc80, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}
