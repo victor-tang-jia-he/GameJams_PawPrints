@@ -19,5 +19,5 @@ MonoBehaviour:
     main par quelqu'un d'inexp\xE9riment\xE9. Saga st grav\xE9 dessus, avec un trait
     tremblant. "
   mesh: {fileID: 0}
-  backgroundSprite: {fileID: 1253722481, guid: 61344021e795a074a9b9b456b1838558, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: 00a2e202b8f417e48b0222c3c4680700, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}

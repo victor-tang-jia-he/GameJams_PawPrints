@@ -17,5 +17,5 @@ MonoBehaviour:
   description: "Une pointe de fl\xE8che sans bout, elle semble avoir \xE9t\xE9 cass\xE9e
     en deux. Un peu de sang s\xE9ch\xE9 se trouve sur son extr\xE9mit\xE9."
   mesh: {fileID: 0}
-  backgroundSprite: {fileID: 0}
+  backgroundSprite: {fileID: 21300000, guid: d72536fe5dc4d764ab698c7ab8207fcd, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}
