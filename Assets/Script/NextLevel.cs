@@ -10,6 +10,7 @@ public class NextLevel : MonoBehaviour, IInteractable
     [SerializeField] private List<InteractableItemInfo> requiredCollectableObjects = new();
     [SerializeField] private GameObject interactionPrompt;
     [SerializeField] private VideoClip videoClipDuringTransition;
+    [SerializeField] private bool cutAllSound = false;
     public MenuType menuType = MenuType.Dialogue;
 
     private void Awake()
@@ -36,7 +37,7 @@ public class NextLevel : MonoBehaviour, IInteractable
             }
             if (isAllRequiredObjGetted)
             {
-                CoreSystem.Instance.GetService<UIManager>().ChangeScene(nextSceneId, menuType, videoClipDuringTransition);
+                CoreSystem.Instance.GetService<UIManager>().ChangeScene(nextSceneId, menuType, videoClipDuringTransition, cutAllSound);
                 return;
             }
         }
