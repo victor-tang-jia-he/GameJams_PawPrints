@@ -17,4 +17,4 @@ MonoBehaviour:
   description: 'A human bone, a femur, old, smooth with no more flesh on it.  '
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: f2f0a9bae402e444b8bf2d223e050439, type: 3}
-  icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}
+  icon: {fileID: 21300000, guid: f2f0a9bae402e444b8bf2d223e050439, type: 3}

@@ -19,4 +19,4 @@ MonoBehaviour:
     \u201CSaga\u201D is engraved on it in shaky handwriting. "
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 21300000, guid: 00a2e202b8f417e48b0222c3c4680700, type: 3}
-  icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}
+  icon: {fileID: 21300000, guid: 00a2e202b8f417e48b0222c3c4680700, type: 3}
