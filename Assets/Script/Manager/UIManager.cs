@@ -136,7 +136,7 @@ public class UIManager : Manager<UIManager>
     public void OnPlayButton()
     {
         FMODUnity.RuntimeManager.PlayOneShot(UIClickSound);
-        StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame, introVideoClip));
+        StartCoroutine(StartChangingScene(inGameSceneId, MenuType.InGame, introVideoClip, true));
     }
     public void OnQuitPauseButton()
     {
@@ -334,10 +334,7 @@ public class UIManager : Manager<UIManager>
 
         canInteractWithUI = false;
 
-        if (cutAllAudio)
-        {
-            OnSceneChange?.Invoke();
-        }
+
 
         yield return FadeIn(1f);
         HideCurrentPanel();
@@ -363,6 +360,10 @@ public class UIManager : Manager<UIManager>
             fadePanel.gameObject.SetActive(true);
             videoPlayer.clip = null;
             videoPlayer.gameObject.SetActive(false);
+        }
+        if (cutAllAudio)
+        {
+            OnSceneChange?.Invoke();
         }
 
         SceneManager.LoadScene(nextSceneId, LoadSceneMode.Single);
