@@ -399,10 +399,10 @@
 	</object>
 	<object class="AutomationPoint" id="{e5820d9a-0fa9-4249-9e63-b230994e5f40}">
 		<property name="position">
-			<value>20</value>
+			<value>30</value>
 		</property>
 		<property name="value">
-			<value>-13</value>
+			<value>-8</value>
 		</property>
 	</object>
 </objects>
