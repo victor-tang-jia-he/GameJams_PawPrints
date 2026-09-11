@@ -224,7 +224,7 @@ public class UIManager : Manager<UIManager>
     #endregion
     public void ShowPanel(MenuType menuType)
     {
-        if (!canInteractWithUI || currentMenuType == menuType)
+        if (!canInteractWithUI)
             return;
         HideCurrentPanel();
         switch (menuType)

@@ -1,4 +1,5 @@
 using Com.DefaultCompany.LostSoul;
+using FMOD.Studio;
 using System;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class AmbMusic : MonoBehaviour
     private void Start()
     {
         ambMusicInstance = FMODUnity.RuntimeManager.CreateInstance(ambMusicReference);
+        ambMusicInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         ambMusicInstance.start();
         uiManager = CoreSystem.Instance.GetService<UIManager>();
 
