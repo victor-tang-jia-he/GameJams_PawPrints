@@ -103,11 +103,6 @@ public class UIManager : Manager<UIManager>
         }
         if (playerInputHandler.GetInventoryPressed())
         {
-            if (currentMenuType == MenuType.Inventory)
-            {
-                OnBackButton();
-                return;
-            }
             OnInventoryButton();
         }
     }
@@ -195,6 +190,7 @@ public class UIManager : Manager<UIManager>
         if (lastMenuType == MenuType.None) return;
 
         if (!(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Main) &&
+            !(currentMenuType == MenuType.InGame && lastMenuType == MenuType.InGame) &&
             !(currentMenuType == MenuType.InGame && lastMenuType == MenuType.Dialogue) &&
             !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Pause) &&
             !(currentMenuType == MenuType.Main && lastMenuType == MenuType.Settings) &&
@@ -208,10 +204,12 @@ public class UIManager : Manager<UIManager>
         if (currentMenuType == MenuType.InGame)
         {
             ShowPanel(MenuType.Pause);
+            return;
         }
         if (currentMenuType == MenuType.Pause)
         {
             ShowPanel(MenuType.InGame);
+            return;
         }
     }
 
@@ -328,6 +326,7 @@ public class UIManager : Manager<UIManager>
         StartCoroutine(StartChangingScene(nextSceneId, menuType, videoClip));
     }
 
+
     private IEnumerator StartChangingScene(int nextSceneId, MenuType menuType, VideoClip videoClip = null)
     {
         if (!canInteractWithUI)
@@ -368,4 +367,49 @@ public class UIManager : Manager<UIManager>
         yield return new WaitForSeconds(1f);
         yield return FadeOut(1f);
     }
+    public void PlayVideo(VideoClip videoClip = null)
+    {
+        if (videoClip == null) return;
+
+        StartCoroutine(StartVideo(videoClip));
+    }
+
+    private IEnumerator StartVideo(VideoClip videoClip = null)
+    {
+        if (!canInteractWithUI)
+            yield break;
+
+        canInteractWithUI = false;
+        yield return FadeIn(0.5f);
+        HideCurrentPanel();
+
+        playerInput.SwitchCurrentActionMap("UI");
+
+        if (videoClip != null && !skipVideo)
+        {
+            videoPlayer.clip = videoClip;
+            videoPlayer.targetCamera = Camera.main;
+            videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.CameraNearPlane;
+            videoPlayer.gameObject.SetActive(true);
+            videoPlayer.Prepare();
+
+            yield return new WaitUntil(() => videoPlayer.isPrepared);
+            videoPlayer.Play();
+
+            yield return new WaitUntil(() => videoPlayer.isPlaying);
+
+            fadePanel.gameObject.SetActive(false);
+            yield return new WaitUntil(() => !videoPlayer.isPlaying);
+
+            fadePanel.gameObject.SetActive(true);
+            videoPlayer.clip = null;
+            videoPlayer.gameObject.SetActive(false);
+        }
+        canInteractWithUI = true;
+        ShowPanel(currentMenuType);
+
+        yield return new WaitForSeconds(0.5f);
+        yield return FadeOut(0.5f);
+    }
+
 }
