@@ -1020,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: introVideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 4087fcf7bd50b3c4eab0d0449a173a3b, type: 3}
+      objectReference: {fileID: 32900000, guid: b8717fef61165e64fbfdc5536f54d0c1, type: 3}
     - target: {fileID: 4786752049906271701, guid: b7f11e745113472419402090bd130bb8, type: 3}
       propertyPath: skipIntroVideo
       value: 0
