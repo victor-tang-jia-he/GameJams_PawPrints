@@ -4,7 +4,7 @@ public class SpatialCallListenerSoundEmitter : SpatialCallListener
 {
     
     public FMODUnity.EventReference soundToEmit;
-
+    public float delaySound;
     
     public GameObject soundSourceObject;
 
@@ -14,10 +14,14 @@ public class SpatialCallListenerSoundEmitter : SpatialCallListener
         if (IsPlayerInZone && soundSourceObject != null)
         {
             base.ListenToCall(callData);
-            FMODUnity.RuntimeManager.PlayOneShot(soundToEmit, soundSourceObject.transform.position);
+            Invoke(nameof(PlaySound), delaySound);
+            
         }
     }
-
+    private void PlaySound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(soundToEmit, soundSourceObject.transform.position);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
