@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{c8169784-087e-4ce6-a8dd-31843de92aa2}">
+	<object class="AudioFile" id="{bbb5a2a0-efed-4c6e-a30c-da83372621e9}">
 		<property name="assetPath">
-			<value>sfx_dog_bark-009.wav</value>
+			<value>Snow.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.5</value>
+			<value>96</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{88a519c1-0e90-435a-a906-950600317a7b}</destination>
