@@ -157,6 +157,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{b742725e-0d95-4933-bf0a-948ba366546c}" />
 	<object class="MultiSound" id="{b2b9522d-4c10-4a5d-84a9-ebbe78f81e5c}">
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<property name="pitch">
 			<value>-0.900000036</value>
 		</property>
@@ -319,7 +322,7 @@
 			<value>0.14124293785310738</value>
 		</property>
 		<property name="value">
-			<value>5</value>
+			<value>10</value>
 		</property>
 		<property name="curveShape">
 			<value>0.318501562</value>
@@ -330,7 +333,7 @@
 			<value>20</value>
 		</property>
 		<property name="value">
-			<value>-9</value>
+			<value>-4</value>
 		</property>
 	</object>
 	<object class="Automator" id="{978e08de-a6a6-49b7-adbf-30646ed6bb81}">
