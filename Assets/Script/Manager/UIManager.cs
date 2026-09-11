@@ -321,19 +321,24 @@ public class UIManager : Manager<UIManager>
     }
     #endregion
 
-    public void ChangeScene(int nextSceneId, MenuType menuType, VideoClip videoClip = null)
+    public void ChangeScene(int nextSceneId, MenuType menuType, VideoClip videoClip = null, bool cutAllAudio = false)
     {
         StartCoroutine(StartChangingScene(nextSceneId, menuType, videoClip));
     }
 
 
-    private IEnumerator StartChangingScene(int nextSceneId, MenuType menuType, VideoClip videoClip = null)
+    private IEnumerator StartChangingScene(int nextSceneId, MenuType menuType, VideoClip videoClip = null, bool cutAllAudio = false)
     {
         if (!canInteractWithUI)
             yield break;
 
         canInteractWithUI = false;
-        OnSceneChange?.Invoke();
+
+        if (cutAllAudio)
+        {
+            OnSceneChange?.Invoke();
+        }
+
         yield return FadeIn(1f);
         HideCurrentPanel();
 
