@@ -17,5 +17,5 @@ MonoBehaviour:
   description: 'A piece of an enemy unit''s flag. It is blood-red, slightly torn,
     and adorned with a symbol. '
   mesh: {fileID: 0}
-  backgroundSprite: {fileID: -81744548, guid: 822d1f2d2fa81924c9da1f4752ff1312, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: c13594a5127f6e548b045c76743ffc80, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}
