@@ -1,12 +1,9 @@
 using Com.DefaultCompany.LostSoul;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
 public class CollectableObject : MonoBehaviour, IInteractable
 {
     public InteractableItemInfo itemInfo;
-    public MeshFilter meshFilter;
 
     private bool canInteract = false;
 
@@ -24,12 +21,6 @@ public class CollectableObject : MonoBehaviour, IInteractable
         {
             Debug.LogWarning($"Collectable Object Item info missing");
             return;
-        }
-
-        meshFilter = GetComponent<MeshFilter>();
-        if (itemInfo.mesh != null)
-        {
-            meshFilter.mesh = itemInfo.mesh;
         }
     }
 

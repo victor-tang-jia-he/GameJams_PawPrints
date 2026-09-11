@@ -4,7 +4,7 @@ public class SpatialCallListenerMesh : SpatialCallListener
 {
 
     public GameObject interactionPrompt;
-    private MeshRenderer meshRenderer;
+    private SpriteRenderer meshRenderer;
 
     private StateMachine glowStateMachine;
     private Material material;
@@ -19,7 +19,7 @@ public class SpatialCallListenerMesh : SpatialCallListener
 
     private void Awake()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponent<SpriteRenderer>();
         collectableObjectComponent = GetComponent<CollectableObject>();
 
         glowStateMachine = GlowStateMachineInit.Init(glowingTime, glowedTime, unglowingTime);
