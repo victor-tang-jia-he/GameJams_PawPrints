@@ -62531,7 +62531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
       propertyPath: ambMusicReference.Path
-      value: event:/MUSIC/mus_spring
+      value: event:/MUSIC/mus_gameplay
       objectReference: {fileID: 0}
     - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
       propertyPath: ambMusicReference.Guid.Data1
@@ -185837,7 +185837,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 30
 --- !u!4 &580437708
 Transform:
   m_ObjectHideFlags: 0
@@ -185847,7 +185847,7 @@ Transform:
   m_GameObject: {fileID: 580437706}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0, z: 74.3}
+  m_LocalPosition: {x: 1.2, y: 0, z: 83.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -605734,7 +605734,7 @@ Transform:
   m_GameObject: {fileID: 1836838833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9, y: 0, z: 55.9}
+  m_LocalPosition: {x: -1.9, y: 0, z: 45.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -605770,7 +605770,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 30
 --- !u!1001 &1836890523
 PrefabInstance:
   m_ObjectHideFlags: 0
