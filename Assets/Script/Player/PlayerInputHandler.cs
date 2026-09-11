@@ -99,6 +99,7 @@ public class PlayerInputHandler : Manager<PlayerInputHandler>
     {
         if (context.performed)
         {
+            Debug.Log("Inventory pressed");
             inventoryPressed = true;
         }
         else if (context.canceled)
