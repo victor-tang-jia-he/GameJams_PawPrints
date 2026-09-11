@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 3
   knotName: Balle en cuir
-  description: "Une vielle balle en cuir, faites de deux morceaux cousus ensemble
-    et remplis de sable. Us\xE9e et sale. "
+  description: 'An old leather ball, made of two pieces sown together and filled
+    with sand. It seems used and dirty. '
   mesh: {fileID: 2408445564094246715, guid: a371a8683def17e4cbe66d50759f045c, type: 3}
   backgroundSprite: {fileID: 1819744078, guid: bafb09d687a36b046b263d0390ce164e, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}

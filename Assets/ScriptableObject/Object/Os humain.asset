@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 8
   knotName: Os humain
-  description: "Une os humain, un f\xE9mur, vieux, lisse sans plus de chair dessus. "
+  description: 'A human bone, a femur, old, smooth with no more flesh on it.  '
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 1602619385, guid: 34fd651598f7b604fba9370275105b21, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}

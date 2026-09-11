@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 9
   knotName: "Pointe de fl\xE8che"
-  description: "Une pointe de fl\xE8che sans bout, elle semble avoir \xE9t\xE9 cass\xE9e
-    en deux. Un peu de sang s\xE9ch\xE9 se trouve sur son extr\xE9mit\xE9."
+  description: "An arrowhead with no tip\u2014it looks as if it has been broken in
+    two. There is a little dried blood on its tip. "
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 0}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}

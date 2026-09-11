@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableItemInfo
   id: 6
   knotName: "D\xE9bris/Morceau de chemin\xE9"
-  description: "Un d\xE9bris de maison, toit ou chemin\xE9e, l\xE9g\xE8remet enfonc\xE9
-    dans le sol comme s'il avait att\xE9rit depuis une grande hauteur. "
+  description: 'A piece of debris from a house, looks like a chimney, slightly embedded
+    in the ground, as if it had fallen from a great height. '
   mesh: {fileID: 0}
   backgroundSprite: {fileID: 1354184456, guid: 69dc75460737c2944842a5fce7df1c5d, type: 3}
   icon: {fileID: -1725300014, guid: 998e34a520367734e8977ac183076141, type: 3}
