@@ -13268,21 +13268,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7068825951916800380, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: MovementSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9030109
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13324,49 +13320,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3048275055948529387, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3176450696718603582, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3176450696718603582, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3176450696718603582, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 44311444}
-    - target: {fileID: 3176450696718603582, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3176450696718603582, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Call
-      objectReference: {fileID: 0}
-    - target: {fileID: 3176450696718603582, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerCall, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3176450696718603582, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: CallRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-      propertyPath: callCooldown
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13378,17 +13334,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1760259513917080650, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
   m_PrefabInstance: {fileID: 44311442}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &44311444 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6449393834779890338, guid: 02808a8acc08cb2428a2b05691f20e62, type: 3}
-  m_PrefabInstance: {fileID: 44311442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b42b160ba9a3684eb4c1f1f50f9fa3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCall
 --- !u!4 &44553181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7529933745881965349, guid: 107e1086451be654ba03a222ad536d6b, type: 3}
@@ -47463,17 +47408,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeasonAudio
       objectReference: {fileID: 0}
+    - target: {fileID: 1525989863615447139, guid: ae350a0f6a0d85f4fa72d0fc7a16dd6d, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525989863615447139, guid: ae350a0f6a0d85f4fa72d0fc7a16dd6d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525989863615447139, guid: ae350a0f6a0d85f4fa72d0fc7a16dd6d, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1764337866634545131, guid: ae350a0f6a0d85f4fa72d0fc7a16dd6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -68.241
+      value: -68.25
       objectReference: {fileID: 0}
     - target: {fileID: 1764337866634545131, guid: ae350a0f6a0d85f4fa72d0fc7a16dd6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.403297
+      value: -11.795
       objectReference: {fileID: 0}
     - target: {fileID: 1764337866634545131, guid: ae350a0f6a0d85f4fa72d0fc7a16dd6d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.844
+      value: 16.92
       objectReference: {fileID: 0}
     - target: {fileID: 1764337866634545131, guid: ae350a0f6a0d85f4fa72d0fc7a16dd6d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62520,6 +62477,110 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 1250658815}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &199197709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 550195048695418517, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_Name
+      value: Music Emitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2196.2559
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 850.5381
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799625432403284511, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: ambMusicReference.Path
+      value: event:/MUSIC/mus_spring
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: ambMusicReference.Guid.Data1
+      value: 190600390
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: ambMusicReference.Guid.Data2
+      value: 1144236248
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: ambMusicReference.Guid.Data3
+      value: 1028327093
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900740767142676281, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      propertyPath: ambMusicReference.Guid.Data4
+      value: -514201722
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 550195048695418517, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 199197711}
+  m_SourcePrefab: {fileID: 100100000, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+--- !u!1 &199197710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 550195048695418517, guid: 0153e0bdbfb0e3e4a8a5aa1194cf6f30, type: 3}
+  m_PrefabInstance: {fileID: 199197709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &199197711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199197710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b28133c59fecd54ca1f390ba3a71898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmbMusic
+  ambMusicReference:
+    Guid:
+      Data1: 507322881
+      Data2: 1087166917
+      Data3: -1131409221
+      Data4: 403975208
+    Path: event:/AMBIENCE/amb_spring
 --- !u!1001 &199220470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110071,6 +110132,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 341031025}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &341166582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341166584}
+  - component: {fileID: 341166583}
+  m_Layer: 0
+  m_Name: RiverSoundReceiver (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &341166583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341166582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1106454498
+      Data2: 1316311407
+      Data3: 546257845
+      Data4: -1423274561
+    Path: event:/AMBIENCE/amb_river_reception
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &341166584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341166582}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.4, y: 0, z: -22.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &341294302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131869,6 +131993,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 356090684}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &408425290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408425292}
+  - component: {fileID: 408425291}
+  m_Layer: 0
+  m_Name: RiverSoundReceiver (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &408425291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408425290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1106454498
+      Data2: 1316311407
+      Data3: 546257845
+      Data4: -1423274561
+    Path: event:/AMBIENCE/amb_river_reception
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &408425292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408425290}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.4, y: 0, z: -34.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &408469559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185603,6 +185790,69 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
+--- !u!1 &580437706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580437708}
+  - component: {fileID: 580437707}
+  m_Layer: 0
+  m_Name: RiverSoundReceiver (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &580437707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580437706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1106454498
+      Data2: 1316311407
+      Data3: 546257845
+      Data4: -1423274561
+    Path: event:/AMBIENCE/amb_river_reception
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &580437708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580437706}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2, y: 0, z: 74.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &580450469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240190,6 +240440,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 718247575}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &718428976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 718428978}
+  - component: {fileID: 718428977}
+  m_Layer: 0
+  m_Name: RiverSoundReceiver (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &718428977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718428976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1106454498
+      Data2: 1316311407
+      Data3: 546257845
+      Data4: -1423274561
+    Path: event:/AMBIENCE/amb_river_reception
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &718428978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718428976}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8, y: 0, z: 34.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &718682151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261777,6 +262090,69 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
+--- !u!1 &787313666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787313668}
+  - component: {fileID: 787313667}
+  m_Layer: 0
+  m_Name: RiverSoundReceiver (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &787313667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787313666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1106454498
+      Data2: 1316311407
+      Data3: 546257845
+      Data4: -1423274561
+    Path: event:/AMBIENCE/amb_river_reception
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &787313668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787313666}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.5, y: 0, z: 17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &787442530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2974595013055145464, guid: 8118ff74adc10fc4d8785f0e499df563, type: 3}
@@ -371222,6 +371598,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 568002699}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1136355253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136355255}
+  - component: {fileID: 1136355254}
+  m_Layer: 0
+  m_Name: RiverSoundReceiver (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1136355254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136355253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1106454498
+      Data2: 1316311407
+      Data3: 546257845
+      Data4: -1423274561
+    Path: event:/AMBIENCE/amb_river_reception
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1136355255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136355253}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19, y: 0, z: -5.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1136392028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -381984,17 +382423,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: fdd60c7cf6d338c4e801a3f210beb8c9, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: 0}
+  m_SubmitAction: {fileID: -5910558827269170424, guid: fdd60c7cf6d338c4e801a3f210beb8c9, type: 3}
+  m_CancelAction: {fileID: 84890765371207721, guid: fdd60c7cf6d338c4e801a3f210beb8c9, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -447673,6 +448112,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 1357678552}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1357700152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357700153}
+  m_Layer: 0
+  m_Name: RiverSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357700153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357700152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1910453773}
+  - {fileID: 580437708}
+  - {fileID: 1836838834}
+  - {fileID: 718428978}
+  - {fileID: 787313668}
+  - {fileID: 1136355255}
+  - {fileID: 341166584}
+  - {fileID: 408425292}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1357716505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3315346135746940697, guid: cbbd98cb28a0d9d4b8b00719b7ee4fa0, type: 3}
@@ -544904,27 +545382,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.6982783
+      value: 3.2362
       objectReference: {fileID: 0}
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.6982783
+      value: 3.2362
       objectReference: {fileID: 0}
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.6982783
+      value: 3.2362
       objectReference: {fileID: 0}
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.81
+      value: -13.69
       objectReference: {fileID: 0}
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.96
+      value: -10.88
       objectReference: {fileID: 0}
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.31
+      value: 74.9
       objectReference: {fileID: 0}
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -544953,6 +545431,10 @@ PrefabInstance:
     - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7606378103194110428, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
       propertyPath: m_Name
@@ -605226,6 +605708,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 1836592034}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1836838833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836838834}
+  - component: {fileID: 1836838835}
+  m_Layer: 0
+  m_Name: RiverSoundReceiver (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836838834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836838833}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9, y: 0, z: 55.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836838835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836838833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1106454498
+      Data2: 1316311407
+      Data3: 546257845
+      Data4: -1423274561
+    Path: event:/AMBIENCE/amb_river_reception
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1836890523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -629218,6 +629763,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 1910306035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1910453772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910453773}
+  - component: {fileID: 1910453774}
+  m_Layer: 0
+  m_Name: RiverSoundEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1910453773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910453772}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 0, z: 77.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357700153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910453774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910453772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 779173763
+      Data2: 1317565317
+      Data3: -963407952
+      Data4: 403854987
+    Path: event:/AMBIENCE/amb_river_transmission
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1910597866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -650651,75 +651259,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
   m_PrefabInstance: {fileID: 1972796003}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1973060669
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.6982783
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.6982783
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.6982783
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 64.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578195946171317362, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7606378103194110428, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
-      propertyPath: m_Name
-      value: ProgressionAudio (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 70aad0a47c870c143afd17fbaf07d2d4, type: 3}
 --- !u!4 &1973124289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5559273217076639981, guid: 6754738b8590afa459420ba44a28e5ce, type: 3}
@@ -707569,4 +708108,5 @@ SceneRoots:
   - {fileID: 156277729}
   - {fileID: 1297036142}
   - {fileID: 1661470320}
-  - {fileID: 1973060669}
+  - {fileID: 199197709}
+  - {fileID: 1357700153}
