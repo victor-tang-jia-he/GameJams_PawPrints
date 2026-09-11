@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{b15ec290-a99f-47d8-b1d9-553c4c4d6ac2}">
 		<property name="assetPath">
-			<value>mus_spring.wav</value>
+			<value>mus_menu.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
